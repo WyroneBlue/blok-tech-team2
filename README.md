@@ -4,3 +4,4 @@
 
 - Ymaro
 - Danique
+- Claudio
