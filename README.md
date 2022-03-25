@@ -6,3 +6,4 @@
 - Danique
 - Claudio
 - Jesse
+- Rick
