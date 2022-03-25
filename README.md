@@ -5,3 +5,5 @@
 - Ymaro
 - Danique
 - Claudio
+- Jesse
+- Rick
