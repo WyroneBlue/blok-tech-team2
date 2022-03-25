@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100">
+  <g id="Group_2" data-name="Group 2" transform="translate(-313 -58)">
+    <circle id="Ellipse_25" data-name="Ellipse 25" cx="8.5" cy="8.5" r="8.5" transform="translate(313 58)" fill="#fff" opacity="1"/>
+    <ellipse id="Ellipse_26" data-name="Ellipse 26" cx="8" cy="8.5" rx="8" ry="8.5" transform="translate(341 58)" fill="#fff" opacity="1"/>
+    <ellipse id="Ellipse_27" data-name="Ellipse 27" cx="8.5" cy="8" rx="8.5" ry="8" transform="translate(313 86)" fill="#fff" opacity="1"/>
+    <circle id="Ellipse_28" data-name="Ellipse 28" cx="8" cy="8" r="8" transform="translate(341 86)" fill="#fff" opacity="1"/>
+    <ellipse id="Ellipse_29" data-name="Ellipse 29" cx="8" cy="8.5" rx="8" ry="8.5" transform="translate(369 58)" fill="#fff" opacity="1"/>
+    <circle id="Ellipse_30" data-name="Ellipse 30" cx="8.5" cy="8.5" r="8.5" transform="translate(396 58)" fill="#fff" opacity="1"/>
+    <circle id="Ellipse_31" data-name="Ellipse 31" cx="8" cy="8" r="8" transform="translate(369 86)" fill="#fff" opacity="1"/>
+    <ellipse id="Ellipse_32" data-name="Ellipse 32" cx="8.5" cy="8" rx="8.5" ry="8" transform="translate(396 86)" fill="#fff" opacity="1"/>
+    <ellipse id="Ellipse_33" data-name="Ellipse 33" cx="8.5" cy="8" rx="8.5" ry="8" transform="translate(313 114)" fill="#fff" opacity="1"/>
+    <circle id="Ellipse_34" data-name="Ellipse 34" cx="8" cy="8" r="8" transform="translate(341 114)" fill="#fff" opacity="1"/>
+    <circle id="Ellipse_35" data-name="Ellipse 35" cx="8.5" cy="8.5" r="8.5" transform="translate(313 141)" fill="#fff" opacity="1"/>
+    <ellipse id="Ellipse_36" data-name="Ellipse 36" cx="8" cy="8.5" rx="8" ry="8.5" transform="translate(341 141)" fill="#fff" opacity="1"/>
+    <circle id="Ellipse_37" data-name="Ellipse 37" cx="8" cy="8" r="8" transform="translate(369 114)" fill="#fff" opacity="1"/>
+    <ellipse id="Ellipse_38" data-name="Ellipse 38" cx="8.5" cy="8" rx="8.5" ry="8" transform="translate(396 114)" fill="#fff" opacity="1"/>
+    <ellipse id="Ellipse_39" data-name="Ellipse 39" cx="8" cy="8.5" rx="8" ry="8.5" transform="translate(369 141)" fill="#fff" opacity="1"/>
+    <circle id="Ellipse_40" data-name="Ellipse 40" cx="8.5" cy="8.5" r="8.5" transform="translate(396 141)" fill="#fff" opacity="1"/>
+  </g>
+</svg>
