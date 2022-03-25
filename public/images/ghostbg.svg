@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="317.962" height="232.321" viewBox="0 0 317.962 232.321">
+  <g id="Group_25" data-name="Group 25" transform="translate(-54.038 -146.679)">
+    <g id="Ellipse_50" data-name="Ellipse 50" transform="translate(67 210)" fill="none" stroke="#484f58" stroke-width="6">
+      <circle cx="16.5" cy="16.5" r="16.5" stroke="none"/>
+      <circle cx="16.5" cy="16.5" r="13.5" fill="none"/>
+    </g>
+    <g id="Ellipse_51" data-name="Ellipse 51" transform="translate(339 293)" fill="none" stroke="#495059" stroke-width="6">
+      <circle cx="16.5" cy="16.5" r="16.5" stroke="none"/>
+      <circle cx="16.5" cy="16.5" r="13.5" fill="none"/>
+    </g>
+    <g id="Group_20" data-name="Group 20" transform="translate(203.762 -151.97) rotate(30)">
+      <rect id="Rectangle_67" data-name="Rectangle 67" width="10" height="40" rx="5" transform="translate(247 234)" fill="#495059"/>
+      <rect id="Rectangle_68" data-name="Rectangle 68" width="10" height="40" rx="5" transform="translate(272 249) rotate(90)" fill="#495059"/>
+    </g>
+    <g id="Group_21" data-name="Group 21" transform="translate(601 107) rotate(90)">
+      <rect id="Rectangle_67-2" data-name="Rectangle 67" width="10" height="40" rx="5" transform="translate(247 234)" fill="#495059"/>
+      <rect id="Rectangle_68-2" data-name="Rectangle 68" width="10" height="40" rx="5" transform="translate(272 249) rotate(90)" fill="#495059"/>
+    </g>
+    <g id="Group_22" data-name="Group 22" transform="translate(73.13 -50.08) rotate(45)">
+      <rect id="Rectangle_67-3" data-name="Rectangle 67" width="10" height="40" rx="5" transform="translate(247 234)" fill="#495059"/>
+      <rect id="Rectangle_68-3" data-name="Rectangle 68" width="10" height="40" rx="5" transform="translate(272 249) rotate(90)" fill="#495059"/>
+    </g>
+    <g id="Group_23" data-name="Group 23" transform="translate(410.716 -85.321) rotate(90)">
+      <rect id="Rectangle_67-4" data-name="Rectangle 67" width="10" height="40" rx="5" transform="translate(247 234)" fill="#495059"/>
+      <rect id="Rectangle_68-4" data-name="Rectangle 68" width="10" height="40" rx="5" transform="translate(272 249) rotate(90)" fill="#495059"/>
+    </g>
+  </g>
+</svg>
