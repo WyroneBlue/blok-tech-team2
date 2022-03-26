@@ -3,14 +3,18 @@ const { avgFromObject } = require('../utils/Functions');
 
 const index = (req, res) => {
 	
-	Promise.all([Restaurant.find({}).lean()])
+	const promises = [
+		Restaurant.find({}).lean()
+	];
+
+	Promise.all(promises)
 		.then(result => {
 			const [restaurants] = result;
 			const page = {
 				title: "Restaurants"
 			};
 
-			res.status(200).render('restaurants/index', { 
+			res.status(200).render('restaurant/index', { 
 				page: page,
 				restaurants: restaurants,
 			});
@@ -19,7 +23,13 @@ const index = (req, res) => {
 
 const show = (req, res) => {
 
-	Promise.all([Restaurant.findOne({slug: req.params.slug}).lean(), User.find({}).lean(), Review.find({ restaurant_slug: req.params.slug}).lean() ])
+	const promises = [
+		Restaurant.findOne({slug: req.params.slug}).lean(), 
+		User.find({}).lean(), 
+		Review.find({ restaurant_slug: req.params.slug}).lean()
+	];
+
+	Promise.all(promises)
 		.then(result => {
 			const [restaurant, users, reviews] = result;
 
@@ -29,7 +39,7 @@ const show = (req, res) => {
 
 			const avg = avgFromObject(reviews, 'rating').toFixed(1);
 				
-			res.status(200).render('restaurants/show', { 
+			res.status(200).render('restaurant/show', { 
 				page: page,
 				restaurant: restaurant,
 				users: users,
