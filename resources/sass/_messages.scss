@@ -1,0 +1,32 @@
+#message-container{
+    height: 400px;
+    padding: 20px;
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        gap: 5px;
+        height: 100%;
+        overflow-y: auto;
+
+        li {
+            padding: 5px 10px;
+            max-width: 75%;
+            border-radius: 10px;
+
+            &.sender {
+                align-self: flex-end;
+                background-color: lightgreen;
+                animation: msg-sent .5s forwards;
+            }
+            
+            &.receiver {
+                align-self: flex-start;
+                background-color: lightblue;
+                animation: msg-received .5s forwards;
+            }
+        }
+    }
+}
+

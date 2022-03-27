@@ -1,0 +1,13 @@
+#chat-container{
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 150px;
+    display: grid;
+    align-content: center;
+
+    form{
+        display: flex;
+        justify-content: center;
+    }
+}

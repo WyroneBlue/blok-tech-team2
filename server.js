@@ -3,6 +3,12 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const IO_PORT = process.env.IO_PORT || 8080;
+const io = require('socket.io')(IO_PORT, {
+	cors: {
+		origin: "*"
+	}
+});
 
 // Database (MongoDB)
 require('dotenv').config();
@@ -35,3 +41,9 @@ app.use('/', urlencodedParser, routes);
 app.listen(PORT, () => {
   	console.log(`Example app listening on port ${PORT}`);
 });
+
+io.on('connection', socket => {
+	socket.on('new-msg-sent', msg => {
+		socket.broadcast.emit('new-msg', msg);
+	})
+})
