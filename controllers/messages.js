@@ -1,11 +1,13 @@
 const { User, Chat } = require('../models');
+let session;
 
 const index = async(req, res) => {
 	const page = {
 		title: "All messages"
 	};
-
-	const user = await User.findOne({ username: 'ymaroblue'}).lean();
+	
+	session = req.session;
+	const user = await User.findOne({ username: session.username}).lean();
 	const chats = await Chat.find({ $or: [{inviter: user}, {receiver: user}] })
 	.populate('inviter').populate('receiver').lean();
 	res.status(200).render('messages/index', { 
