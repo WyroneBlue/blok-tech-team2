@@ -1,0 +1,22 @@
+{{> head }}
+    {{> header }}
+        {{{body}}}
+<main>
+    <section id="loginpagina">
+        <article>
+            <h1>Hi again!</h1>
+            <p>Welcome back, let's get you started.</p>
+        </article>
+
+        <form action="/inloggen" id="homescreen" method="POST">
+            <label for="frame">Username</label>
+            <input type="text" id="username" name="username" placeholder="Username">
+
+            <label for="frame">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password">
+            <p>Forgot password?</p>
+            <input id="button" type="submit" value="Inloggen">
+        </form>
+        <p>Not a member?<a href="#">register now!</a></p>
+    </section>
+</main>
