@@ -13,7 +13,7 @@ const welkom = (req, res) => {
 		title: "Welcome"
 	};
     
-	res.status(200).render('welkom', { 
+	res.status(200).render('auth/welkom', { 
 		page: page,
 		layout: false
 	});
@@ -24,7 +24,7 @@ const login = (req, res) => {
 		title: "Login"
 	};
     
-	res.status(200).render('login', { 
+	res.status(200).render('auth/login', { 
 		page: page,
 		layout: false
 	});

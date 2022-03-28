@@ -33,7 +33,8 @@
             background-color:#ebf2ff;
             border-radius:1em;
             border:0.2em solid #d6dce7;
-            padding:.9em
+            padding:.9em;
+            font-family: $main-font;
         }
         #button{
             border:none;
@@ -71,7 +72,7 @@
     }
     button{
         border:none;
-        padding:.8em;
+        padding:.6em;
         width:calc(100% - 20%);
         font-size:1.8em;
         border-radius:.6em;
@@ -92,4 +93,8 @@
         right:2em;
         height:6em;
     }  
+    a{
+        text-decoration: none;
+        color: black;
+    }
 }
