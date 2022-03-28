@@ -5,7 +5,6 @@ const index = async (req, res) => {
 		title: "Home"
 	};
 	const restaurants = await Restaurant.find().lean();
-	console.log(restaurants);
 	res.status(200).render('home', { 
 		page: page,
 		restaurants: restaurants
