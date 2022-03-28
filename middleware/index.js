@@ -11,6 +11,16 @@ const loggedIn = (req, res, next) => {
     }
 };
 
+const guest = (req, res, next) => {
+
+    session = req.session;
+    if(!session.username){
+        next()
+    } else {
+        res.redirect('/');
+    }
+};
+
 const viewCounter = (req, res, next) => {
 
 	if (!req.session.views) {
@@ -27,5 +37,6 @@ const viewCounter = (req, res, next) => {
 
 module.exports = {
     loggedIn: loggedIn,
+    guest: guest,
     viewCounter: viewCounter,
 }
