@@ -1,1 +1,1 @@
-{"version":3,"sourceRoot":"","sources":["../../resources/sass/app.scss","../../resources/sass/_variables.scss","../../resources/sass/_global.scss","../../resources/sass/_nav.scss"],"names":[],"mappings":"AAAA;ACAA;AAAA;AAAA;AAMA;AAAA;AAAA;ACNA;AACA;EACI;EACA;EACA;;;ACJJ;EACI","file":"app.css"}
+{"version":3,"sourceRoot":"","sources":["../../resources/sass/app.scss","../../resources/sass/_variables.scss","../../resources/sass/_global.scss"],"names":[],"mappings":"AAAA;ACAA;AAAA;AAAA;AAMA;AAAA;AAAA;ACNA;AACA;EACI;EACA;EACA","file":"app.css"}

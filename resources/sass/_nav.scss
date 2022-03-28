@@ -1,4 +1,15 @@
-
 #navbar {
-    background-color: $primary-color;  
+    background-color: $white-color;
+    margin: 2em;
+    margin-left: 1em;
+    bottom: 0;
+    position: absolute;
+    width: calc(100% - 10%);
+    border-radius: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    img {
+        padding: 1em;
+    }
 }
