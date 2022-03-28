@@ -12,6 +12,17 @@ const index = async (req, res) => {
 	});
 };
 
+const welkom = (req, res) => {
+	const page = {
+		title: "Welcome"
+	};
+	res.status(200).render('auth/welkom', { 
+		page: page,
+		layout: false
+	});
+};
+
 module.exports = {
-	index: index
+	index: index,
+	welkom: welkom
 };
