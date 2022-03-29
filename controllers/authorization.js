@@ -25,7 +25,7 @@ const loginUser = async (req, res) => {
 
 				console.log("Succesvol ingelogd!");
 				session = req.session;
-				session.username = req.body.username;
+				session.authUser = getUser;
 				return res.status(200).redirect('/');
 			} else {
 
@@ -64,8 +64,7 @@ const saveUser = async (req, res) => {
 	bcrypt.genSalt(saltRounds, (err, salt) => {
 		bcrypt.hash(req.body.password, salt, async(err, hash) => {
 			hashedPassword = hash;
-			console.log(hashedPassword);
-			await User.create({
+			const savedUser = await User.create({
 				username: req.body.username,
 				name: req.body.name,
 				email: req.body.email,
@@ -74,8 +73,7 @@ const saveUser = async (req, res) => {
 			})
 
 			session = req.session
-			session.username = req.body.username;
-			session.email = req.body.email;
+			session.authUser = savedUser
 			res.redirect('/');	
 		});
 	});

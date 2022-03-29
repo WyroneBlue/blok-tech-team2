@@ -2,9 +2,8 @@ const parseurl = require('parseurl')
 let session;
 
 const loggedIn = (req, res, next) => {
-    
     session = req.session;
-    if(session.username){
+    if(session.authUser){
         next()
     } else {
         res.redirect('/login');
@@ -14,7 +13,7 @@ const loggedIn = (req, res, next) => {
 const guest = (req, res, next) => {
 
     session = req.session;
-    if(!session.username){
+    if(!session.authUser){
         next()
     } else {
         res.redirect('/');
