@@ -1,0 +1,33 @@
+<section id="chat-info">
+    <a href="/messages">
+        <img src="/public/images/arrow-left.svg" alt="Back image"> back
+    </a>
+    <h1>{{ chat.receiver.name }}</h1>
+    {{#unless accepted}}
+        <span>This chat has not been accepted yet</span>
+    {{/unless}}
+</section>
+<section id="message-container">
+    <ul>
+        {{#each chat.history}}
+            
+            <li 
+            {{#compare user.username 'ymaroblue'}}
+                class="sender"
+            {{else}}
+                class="receiver"
+            {{/compare}}
+            >
+                <p>{{ message }}</p>
+                <span>{{date date "h:mm"}}</span>
+
+            </li>
+        {{/each}}
+    </ul>
+</section>
+<section id="chat-container">
+    <form>
+        <input type="text" name="message" id="message">
+        <button type="submit">Send message</button>
+    </form>
+</section>
