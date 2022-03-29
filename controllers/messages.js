@@ -1,11 +1,14 @@
 const { User, Chat } = require('../models');
+let session;
 
 const index = async(req, res) => {
+
 	const page = {
 		title: "All messages"
 	};
-
-	const user = await User.findOne({ username: 'ymaroblue'}).lean();
+	
+	session = req.session;
+	const user = await User.findOne({ username: session.username}).lean();
 	const chats = await Chat.find({ $or: [{inviter: user}, {receiver: user}] })
 	.populate('inviter').populate('receiver').lean();
 	res.status(200).render('messages/index', { 
@@ -15,10 +18,11 @@ const index = async(req, res) => {
 };
 
 const chat = (req, res) => {
+	
 	const page = {
 		title: "Chat"
 	};
-    
+
 	const promises = [
 		User.findOne({ username: 'ymaroblue' }).lean(), 
 		User.findOne({ username: req.params.username }).lean(), 
@@ -34,7 +38,7 @@ const chat = (req, res) => {
 			model: User
 		})	
 		.lean()
-		console.log(chat);
+
 		let accepted = false;
 		if(chat && chat.accepted){
 			accepted = true;
@@ -46,8 +50,6 @@ const chat = (req, res) => {
 			accepted: accepted,
 		});
 	})
-
-
 };
 
 const create = async(req, res) => {
@@ -60,9 +62,6 @@ const create = async(req, res) => {
 	Promise.all(promises)
 	.then(async result => {
 		const [inviter, receiver] = result;
-
-		// console.log(inviter);
-		// console.log(receiver);
 
 		const checkChat = await Chat.findOne({ inviter: inviter, receiver: receiver });
 		if(checkChat){
@@ -90,7 +89,7 @@ const update = async (req, res) => {
 		User.findOne({ username: 'ymaroblue' }).lean(), 
 		User.findOne({ username: req.params.username }).lean(), 
 	];
-	// console.log(req.body);
+
 	Promise.all(promises)
 	.then(async result => {
 		const [inviter, receiver] = result;
@@ -111,11 +110,6 @@ const update = async (req, res) => {
 		} else {
 			res.send('not_accepted');
 		}
-
-		// await Chat.findOneAndUpdate(
-		// 	{ inviter: inviter, receiver: receiver }, 
-		// 	{ $push: { history: newMessage }}
-		// );
 	})
 };
 

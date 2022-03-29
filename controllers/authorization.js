@@ -7,7 +7,6 @@ const login = (req, res) => {
 	const page = {
 		title: "Login"
 	};
-    
 	res.status(200).render('auth/login', { 
 		page: page,
 		layout: false
