@@ -1,0 +1,269 @@
+$mainteam-color: #FFED74;
+$mainteam-color-hover: #a39956;
+
+$font-color: #333334;
+$main-font: 'Poppins', sans-serif;
+$input-border-color: #B8C0D7;
+$input-bg-color: #F4F6FC;
+$black-color: black;
+$validate-color:#63d64c;
+$errorpage-bg: #2C3338;
+$white: white;
+$btn-primary-hover: #2d328f;
+$link-color: #6168F3;
+$warning-color: #8b0000;
+
+.register{
+
+    // background: #ebf2ff;
+    background: linear-gradient(4deg, #ebf2ff 0%, #fff 100%);
+    background-repeat: no-repeat;
+    // height: 100vh;
+    height: 160%;
+    font-family: "poppins",sans-serif;
+
+    
+    .bg {
+        clip-path: circle(54.4% at 50% 0);
+        margin-top: -6em;
+        background-color: $mainteam-color;
+        width: 100%;
+        height: 100%;
+        max-height: 56em;
+        position: absolute;
+        z-index: -1;
+        
+    }
+    
+    
+    .arrow {
+        padding: 1.5em;
+        width: 15em;
+        filter: brightness(0) saturate(100%) invert(15%) sepia(6%) saturate(1418%) hue-rotate(162deg) brightness(98%) contrast(86%);
+        
+        a {
+            text-decoration: none;
+            color: $font-color;
+            font-family: $main-font;
+            font-size: 1.5em;
+            
+            img {
+            padding-right: .5em;
+            }
+        }
+    }
+
+
+    .Intro-signup {
+        margin: auto;
+        padding: 0em 3em 6em 3em;
+        max-width: 30em;
+        text-align: center;
+        color: $font-color;
+        background: url("/static/images/dotsbg.svg") no-repeat 82% 11% ;
+    
+        h1 {
+            font-size: 2em;
+            font-family: $main-font;
+        }
+    
+        p {
+            font-size: 1em;
+            font-family: $main-font;
+        
+        }
+    
+    }
+
+    #signupform {
+        margin: auto;
+        max-width: 40em;
+        display: grid;
+        padding: 0em 1em;
+        border: none;
+        font-family: $main-font;
+
+        h2 {
+            font-size: 1.5em;
+            color: $font-color;
+            font-weight: 600;
+            margin-top: 0.5em;
+            padding: 0 calc((100% - 19em) / 2);
+        }
+    
+        fieldset:first-of-type{
+            display: grid;
+            border: none;
+            margin: auto;
+            width: 100%;
+            max-width: 28em;
+        
+            label{
+                font-size: 1.5em;
+                color: $font-color;
+                font-weight: 600;
+                margin-top: .5em;
+            
+                a{
+                    text-decoration: none;
+                    color: $input-border-color;
+                    text-align: right;
+                    font-size: 1em;
+                    display: block;
+                    margin-top: -0.5em;
+                    font-weight: 500;
+                
+                    &:hover {
+                        color: $mainteam-color;
+                    }
+                
+                }
+            
+            }
+        
+        
+            input {
+                background-color: $input-bg-color;
+                border-radius: .5em;
+                padding: 1.5em 2em;
+                margin: 1em 0em 1em 0em;
+                font-family: $main-font;
+                max-width: 28em;
+                width: 100%;
+                font-size: 1em;
+                color: $black-color;
+            
+                &::placeholder{
+                    color: $input-border-color;
+                    opacity: 1; 
+                    font-weight: 500;
+                }
+            
+            }
+        }
+    
+        input:not(:placeholder-shown) {
+            border: .2em solid $validate-color;
+        
+        }
+    
+        input:placeholder-shown {
+            border: .2em solid $input-border-color;
+        }
+    
+        fieldset:last-of-type{
+            display: grid;
+            border: none;
+            text-align: center;
+            margin: auto;
+            width: 100%;
+            max-width: 28em;
+        
+            button {
+                background-color: $errorpage-bg;
+                border-radius: .5em;
+                padding: 1em 2em;
+                margin: 2em 0em 4em 0em;
+                border: none;
+                font-family: $main-font;
+                max-width: 19em;
+                width: 100%;
+                font-size: 1.5em;
+                color: $white;
+                font-weight: 600;
+                transition: .25s ease;
+                cursor: pointer;
+            
+            
+                &:hover{
+                    background-color: $btn-primary-hover;
+                    transition: .25s ease;
+                }
+            
+            }
+        
+            label {
+                color: $font-color;
+                padding-left: 1em;
+            
+                a{
+                    color: $link-color;
+                }
+            }
+        
+        }
+    
+    }
+
+    #terms {
+        padding-top: 2em;
+        padding-right: 1em;
+        width: 2em;
+        height: 2em;
+        vertical-align: middle;
+        position: relative;
+    }
+
+    .checked{
+        background-color: $warning-color;
+    
+    }
+
+    .preferences {
+        list-style-type: none;
+        margin: auto;
+        /*   padding: 1em; */
+        padding: 0 calc((100% - 24em) / 2) 1em;
+        font-family: "poppins", sans-serif;
+        font-size: 1.3em;
+    
+        li {
+            float: left;
+            margin: 1em .5em;
+        
+            width: 5em;
+            height: 2.2em;
+            position: relative;
+            text-align: center;
+            border-radius: .5em;
+            color: #8496cb;
+            font-weight: 500;
+            background-color: #c5d3f7;;
+        }
+    
+        label,
+        input {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    
+        input[type="radio"] {
+            opacity: 0.01;
+            z-index: 100;
+        }
+    
+        input[type="radio"]:checked+label,
+        .checkedradio+label {
+            background: #2C3338;
+            color: white;
+            transition: .2s ease;
+        
+        }
+    
+        label {
+            padding: 5px;
+            border-radius: .5em;
+            cursor: pointer;
+            z-index: 90;
+        }
+    
+        label:hover {
+            background: #2C3338;
+            transition: .2s ease;
+        }
+    }
+}

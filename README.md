@@ -1,4 +1,4 @@
-# blok-tech-team2
+# Matchtaurant - Blok Tech Team 2
 
 ## Members 
 
@@ -7,3 +7,4 @@
 - Claudio
 - Jesse
 - Rick
+

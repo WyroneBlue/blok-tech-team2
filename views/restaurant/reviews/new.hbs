@@ -1,0 +1,60 @@
+<article class="restaurant-rate">
+    <section id="top" class="heading">
+        <a href="/restaurants/{{ restaurant.slug }}/reviews">
+            <img src="/public/images/icons/back.svg" alt="Go Back Icon">
+        </a>
+        <h2>Nieuwe review</h2>
+        <img class="save-restaurant {{ bool true 'saved' }}" 
+            {{#if true }}
+                src="/public/images/icons/heart-filled.svg"
+            {{else }}
+                src="/public/images/icons/heart-border.svg"
+            {{/if }}
+                data-saved="/public/images/icons/heart-filled.svg" 
+                data-unsaved="/public/images/icons/heart-border.svg" 
+                alt="Save Restaurant Icon"
+            />
+    </section>
+    <section id="middle">
+        <section class="snap">
+            <img src="/public/images/restaurant.jpg" alt="">
+            <img src="/public/images/restaurant.jpg" alt="">
+            <img src="/public/images/restaurant.jpg" alt="">
+            <img src="/public/images/restaurant.jpg" alt="">
+        </section>
+        <section>
+            <div>
+                <h1>{{ restaurant.name }}</h1>
+                <a href="https://www.google.com/maps">
+                    <img src="/public/images/icons/route.svg" alt="">
+                </a>
+            </div>
+        </section>
+
+        <form action="/restaurants/{{ restaurant.slug }}/rate" method="POST">
+            <label for="rating">
+                Rating: <button type="button" class="use-vib">gebruik trilling</button>
+                    <ul id="star-rating" class="snap" style="width: {{stars 3 5 17.9}}vw">
+                        {{#times 5}}
+                            <li>
+                                <img src="/public/images/icons/star.svg" alt="Star {{add this 1}}">
+                            </li>
+                        {{/times}}
+                    </ul>
+                <input type="range" name="rating" id="slider-rating" min="0" max="5" step=".1" required>
+            </label>
+            <label class="toggle" for="anon">
+                Anoniem:
+                <input type="checkbox" name="anon" id="anon">
+                <span class="slider"></span>
+            </label>
+            <label for="remark">
+                Extra opmerking:
+                <textarea type="text" name="remark" placeholder="..." required></textarea>
+            </label>
+            <button type="submit">
+                Plaats jouw review
+            </button>
+        </form>
+    </section>
+</article>

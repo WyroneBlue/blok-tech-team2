@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+{{> head }}
+<body>
+    {{> header }}
+    <main>
+        {{{body}}}
+    </main>
+    {{> nav }}
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="http://localhost:8080/socket.io/socket.io.js"></script>
+    <script src="/public/js/chat.js"></script>
+</body>
+</html>
