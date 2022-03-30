@@ -25,8 +25,12 @@ const formatTime = (date) => {
     return `${date.getHours()}:${date.getMinutes()}`
 }
 
-const showLatestMsg = () => {
-    latestMsg.scrollIntoView();
+const showLatestMsg = async(smooth = true) => {
+    let behavior = (smooth) ? 'smooth' : 'auto'
+
+    await latestMsg.scrollIntoView({
+        behavior: behavior
+    });
 }
 
 const addMessage = async (msg, type) => {
@@ -37,13 +41,19 @@ const addMessage = async (msg, type) => {
     if(success && success.data != 'not_accepted'){
 
         let msgTemplate = `
-            <li class="${type} new">
+            <li class="${type} wait">
                 <p>${msg}</p>
                 <span>${formatedTime}</span>
             </li>    
         `
         chatContainer.insertAdjacentHTML('beforeend', msgTemplate);
         latestMsg = chatContainer.querySelector('li:last-child');
+        showLatestMsg();
+
+        setTimeout(() => {
+            latestMsg.classList.remove('wait') 
+            latestMsg.classList.add('new') 
+        }, 100);
             
         latestMsg.addEventListener('animationend', (e) => {
             e.target.classList.remove('new');
@@ -76,6 +86,8 @@ if(form){
 window.addEventListener('DOMContentLoaded', () => {
     if(chatContainer){
         latestMsg = chatContainer.querySelector('li:last-child');
-        showLatestMsg();
+        if(latestMsg){
+            showLatestMsg(false);
+        }
     }
 })
