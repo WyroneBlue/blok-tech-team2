@@ -1,6 +1,6 @@
 const index = (req, res) => {
 	const page = {
-		title: "error"
+		title: "likes"
 	};
     
 	res.status(200).render('profile/likes', { 
