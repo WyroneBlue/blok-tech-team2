@@ -33,6 +33,8 @@ const viewCounter = (req, res, next) => {
 	req.session.views[pathname] = (req.session.views[pathname] || 0) + 1;
 	next();
 };
+const { loggedIn, guest } = require('./authorization');
+const viewCounter = require('./viewCounter');
 
 module.exports = {
     loggedIn: loggedIn,
