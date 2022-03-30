@@ -7,6 +7,7 @@ const Schema = mongoose.Schema;
 const ChatSchema = new Schema({
 	inviter: { type: Schema.Types.ObjectId, ref: 'User' },
 	receiver: { type: Schema.Types.ObjectId, ref: 'User' },
+	name: String,
 	accepted: { type: Boolean, default: true },
 	pending: { type: Boolean, default: true },
 	history: [{ 
