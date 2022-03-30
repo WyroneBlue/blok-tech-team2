@@ -1,11 +1,7 @@
 const socket = io('http://localhost:8080');
-const chatContainer = document.querySelector('#message-container ul');
-const form = document.querySelector('form');
-let input;
-if(form){
-    input = form.querySelector('input#message');
-}
 
+const chatContainer = document.querySelector('#message-container ul');
+const chatForm = document.querySelector('#chat-container form');
 let latestMsg;
 
 const saveMessageHistory = async(msg, date) => {
@@ -33,11 +29,16 @@ const showLatestMsg = async(smooth = true) => {
     });
 }
 
-const addMessage = async (msg, type) => {
+const addMessage = async (msg, type, save = true) => {
 
     let date = new Date();
     let formatedTime = formatTime(date)
-    let success = await saveMessageHistory(msg, date);
+    let success = true;
+
+    if(save){
+        success = false;
+        success = await saveMessageHistory(msg, date);
+    }
     if(success && success.data != 'not_accepted'){
 
         let msgTemplate = `
@@ -58,30 +59,39 @@ const addMessage = async (msg, type) => {
         latestMsg.addEventListener('animationend', (e) => {
             e.target.classList.remove('new');
         });
-        showLatestMsg();
 
-    } else if(success.data == 'not_accepted'){
+    } else if(success.data.error && success.data.error == 'not_accepted'){
         alert('This chat is not accepted yet!')
     } else {
         alert('Could not send message. Please try again later.')
     }
 }
 
-socket.on('new-msg', message => {
-    addMessage(message, 'receiver');
-})
-
-if(form){
-
-    form.addEventListener('submit', e => {
+if(chatForm){
+    let chatName = document.getElementById('chatName').value;
+    socket.emit('join-chat', chatName);
+    chatForm.addEventListener('submit', async e => {
         e.preventDefault();
         const form = new FormData(e.target);
         const msg = form.get("message");
-        socket.emit('new-msg-sent', msg);
-        addMessage(msg, 'sender')
-        input.value = '';
+        if(msg){
+            await socket.emit('new-msg-sent', { 
+                name: chatName,
+                msg: msg, 
+            });
+            addMessage(msg, 'sender')
+            chatForm.reset();
+        }
     })
 }
+
+socket.on("user connected", (user) => {
+    console.log(user);
+});
+
+socket.on('new-msg', message => {
+    addMessage(message, 'receiver', false);
+})
 
 window.addEventListener('DOMContentLoaded', () => {
     if(chatContainer){
