@@ -19,6 +19,4 @@ router.use('/register', register);
 router.use('/login', guest, login);
 router.use('*', error);
 
-
-
 module.exports = router;

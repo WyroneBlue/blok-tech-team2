@@ -108,6 +108,10 @@
                 align-self: flex-end;
                 background-color: lightgreen;
 
+                &.wait{
+                    visibility: hidden;
+                }
+                
                 &.new {
                     animation: msg-sent .5s forwards;
                 }
