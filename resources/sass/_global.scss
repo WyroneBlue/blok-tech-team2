@@ -6,9 +6,7 @@
 }
 body{
     background: rgb(235,242,255);
-    background: linear-gradient(4deg, rgba(235,242,255,1) 0%, rgba(255,255,255,1) 100%);
     background-repeat: no-repeat;
-    height: 100vh;
     font-family: $main-font;
 }
 #chat-container{
@@ -27,4 +25,7 @@ body{
 
 ul{
     list-style: none;
+}
+main {
+    padding-bottom: $footer-height;
 }

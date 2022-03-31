@@ -1,16 +1,15 @@
 #navbar {
-    background-color: #fff;
-    bottom: 0;
-    position: absolute;
+    background-color: #e6efff;    
+    position: fixed;
     border-radius: 20em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     padding-top: 0.4em;
-    height: 4em;
+    height: $footer-height;
     left: 1em;
     right: 1em;
-    bottom: 1em;
+    bottom: 2em;
 
     img {
         transition: .2s ease;
