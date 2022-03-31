@@ -57,9 +57,7 @@
                             </p>
                         </div>
                     </section>
-                    {{ user._id }}
-                    {{ authUser.id }}
-                    {{#compare user._id authUser.id}}
+                    {{#compare user._id ../authUser._id}}
                         <a href="/restaurants/{{ ../../restaurant.slug }}/reviews/{{ ../_id}}/edit">
                             aanpassen
                         </a>
