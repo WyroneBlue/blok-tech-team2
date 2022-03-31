@@ -1,0 +1,114 @@
+$main-color: #FFED74;
+$alt-color: #363636;
+$main-white: #FFFFFF;
+$shadow-color: rgba(33, 0, 165, 0.2);
+
+
+.discover {
+  h1 {
+    font-size: 1.4em;
+    position: relative;
+    top: 1em;
+    left: .5em;
+    letter-spacing: .07em;
+  }
+  ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    list-style: none;
+    
+    li {
+      background-color: $main-white;
+      width: 80vw;
+      border-radius: 1.5em;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-flow: column nowrap;
+      gap: .7em;
+      box-shadow: 0 0 10px $shadow-color;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+
+
+      .cards {
+        position: relative;
+        aspect-ratio: 1 / 1.2;
+        display: flex;
+        h2 {
+          color: $main-white;
+          font-size: 1.8em;
+          font-weight: 500;
+          position: absolute;
+          bottom: 2em;
+          left: .5em;
+          z-index: 1;
+        }
+        p {
+          color: $main-white;
+          font-size: 1em;
+          font-weight: 500;
+          position: absolute;
+          bottom: 1.5em;
+          left: 1em;
+          z-index: 2;
+        }
+        img {
+          width: 74vw;
+          height: 100%;
+          border-radius: 1em;
+          margin-top: .7em;
+          filter: brightness(70%);
+        }
+        
+      }
+      .buttons {
+        display: flex;
+        flex-flow: row nowrap;
+        width: 50vw;
+        justify-content: space-around;
+        align-items: center;
+        margin: 1em auto;
+        form:nth-of-type(1) {
+
+          .dislike {
+            background-color: $alt-color;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 4em;
+            height: 4em;
+            border-radius: 50%;
+            box-shadow: 0px 0px 15px $shadow-color;
+
+            img {
+              width: 1.5em;
+            }
+          }
+        }
+        form:nth-of-type(2) {
+
+          .like {
+            background-color: $alt-color;
+            border: none;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 4em;
+            height: 4em;
+            border-radius: 50%;
+            box-shadow: 0px 0px 15px $shadow-color;
+
+            img {
+              width: 2em;
+            }
+          }
+        }
+      }
+    }
+  }
+}

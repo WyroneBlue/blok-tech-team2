@@ -5,8 +5,6 @@ const app = express();
 const PORT = process.env.PORT || 3000;
 const IO_PORT = process.env.IO_PORT || 8080;
 const session = require('express-session')
-var parseurl = require('parseurl')
-
 const io = require('socket.io')(IO_PORT, {
 	cors: {
 		origin: "*"
@@ -20,30 +18,16 @@ db();
 
 // BodyParser
 const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const urlencodedParser = bodyParser.urlencoded({ extended: true });
+app.use(bodyParser.json());
 
 // sessions
-
-app.use(session({
+const useSession = session({
 	secret: 'keyboard cat',
 	resave: false,
 	saveUninitialized: true
-  }))
-  
-  app.use(function (req, res, next) {
-	if (!req.session.views) {
-	  req.session.views = {}
-	}
-  
-  
-  // get the url pathname
-  var pathname = parseurl(req).pathname
-  
-  // count the views
-  req.session.views[pathname] = (req.session.views[pathname] || 0) + 1
-  
-  next()
-  })
+})
+app.use(useSession);
 
 // Routes
 const routes = require("./routes");
@@ -64,15 +48,22 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 // Use Routes
 app.use('/', urlencodedParser, routes);
 
+// Websockets
+io.on('connection', socket => {
+	socket.on('join-chat', (name) => {
+		socket.join(name);
+	})
+
+	socket.on('new-msg-sent', chat => {
+		socket.to(chat.name).emit('new-msg', chat.msg);
+	})
+})
+
 app.listen(PORT, () => {
   	console.log(`Example app listening on port ${PORT}`);
 });
 
-io.on('connection', socket => {
-	socket.on('new-msg-sent', msg => {
-		socket.broadcast.emit('new-msg', msg);
-	})
-})
+
 
 
 
