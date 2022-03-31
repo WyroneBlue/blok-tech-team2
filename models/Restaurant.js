@@ -9,7 +9,14 @@ const RestaurantSchema = new Schema({
 	slug: String,
 	description: String,
 	image: String,
-	location: String,
+	location: { 
+		address: { type: String, default: '' },
+		link: { type: String, default: '' },
+	},
+	cuisines: [{
+		name:  { type: String, default: '' },
+		color: { type: String, default: '' }
+	}],	
 });
 
 const Restaurant = mongoose.model('Restaurant', RestaurantSchema);
