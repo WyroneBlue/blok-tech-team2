@@ -1,8 +1,3 @@
-$main-color: #FFED74;
-$alt-color: #363636;
-$main-white: #FFFFFF;
-$shadow-color: rgba(33, 0, 165, 0.2);
-
 .likes {
   h1 {
     font-size: 1.4em;
@@ -24,10 +19,10 @@ $shadow-color: rgba(33, 0, 165, 0.2);
       width: 44%;
       border-radius: 1em;
       padding: .8em;
-      background-color: $main-white;
+      background-color: $white-color;
       box-shadow: 0 0 10px $shadow-color;
       position: relative;
-      color: $alt-color;
+      color: $font-color;
 
       h2 {
         font-size: 1.1em;
@@ -47,7 +42,7 @@ $shadow-color: rgba(33, 0, 165, 0.2);
         z-index: 3;
         top: 4.4em;
         left: 1.2em;
-        color: $main-white
+        color: $white-color;
       }
 
       img {

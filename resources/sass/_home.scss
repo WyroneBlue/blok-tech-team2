@@ -1,9 +1,3 @@
-$main-color: #FFED74;
-$alt-color: #363636;
-$main-white: #FFFFFF;
-$shadow-color: rgba(33, 0, 165, 0.2);
-
-
 .discover {
   h1 {
     font-size: 1.4em;
@@ -19,7 +13,7 @@ $shadow-color: rgba(33, 0, 165, 0.2);
     list-style: none;
     
     li {
-      background-color: $main-white;
+      background-color: $white-color;
       width: 80vw;
       border-radius: 1.5em;
       display: flex;
@@ -39,7 +33,7 @@ $shadow-color: rgba(33, 0, 165, 0.2);
         aspect-ratio: 1 / 1.2;
         display: flex;
         h2 {
-          color: $main-white;
+          color: $white-color;
           font-size: 1.8em;
           font-weight: 500;
           position: absolute;
@@ -75,7 +69,7 @@ $shadow-color: rgba(33, 0, 165, 0.2);
         form:nth-of-type(1) {
 
           .dislike {
-            background-color: $alt-color;
+            background-color: $font-color;
             border: none;
             display: flex;
             justify-content: center;
@@ -93,7 +87,7 @@ $shadow-color: rgba(33, 0, 165, 0.2);
         form:nth-of-type(2) {
 
           .like {
-            background-color: $alt-color;
+            background-color: $font-color;
             border: none;
             display: flex;
             justify-content: center;

@@ -4,7 +4,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 // Properties
 $primary-color: #FFED74;
+$alt-color: #363636;
 $white-color: #ffffff;
+$grey-color: rgb(235,242,255);
 
 $main-font: "poppins", sans-serif;
 
@@ -25,6 +27,14 @@ $white: white;
 $btn-primary-hover: #2d328f;
 $link-color: #6168F3;
 $warning-color: #8b0000;
+$main-white: white;
+
+/* 
+likes & home
+*/
+$shadow-color: rgba(33, 0, 165, 0.2);
+
+$footer-height: 4em;
 
 /* 
   Einde Custom Properties
