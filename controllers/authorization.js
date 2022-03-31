@@ -2,6 +2,9 @@ const { User } = require('../models');
 const bcrypt = require('bcrypt');
 const saltRounds = 10;
 let session;
+"use strict";
+const nodemailer = require("nodemailer");
+
 
 const login = (req, res) => {
 	const page = {
@@ -25,7 +28,7 @@ const loginUser = async (req, res) => {
 
 				console.log("Succesvol ingelogd!");
 				session = req.session;
-				session.username = req.body.username;
+				session.authUser = getUser;
 				return res.status(200).redirect('/');
 			} else {
 
@@ -64,8 +67,7 @@ const saveUser = async (req, res) => {
 	bcrypt.genSalt(saltRounds, (err, salt) => {
 		bcrypt.hash(req.body.password, salt, async(err, hash) => {
 			hashedPassword = hash;
-			console.log(hashedPassword);
-			await User.create({
+			const savedUser = await User.create({
 				username: req.body.username,
 				name: req.body.name,
 				email: req.body.email,
@@ -74,10 +76,25 @@ const saveUser = async (req, res) => {
 			})
 
 			session = req.session
-			session.username = req.body.username;
-			session.email = req.body.email;
-			res.redirect('/');	
+			session.authUser = savedUser
+			let transporter = nodemailer.createTransport({
+				service: "hotmail",
+				auth: {
+				  user: "matchtaurant@hotmail.com",
+				  pass: "Bloktech",
+				},
+			  });
+			
+			  transporter.sendMail({
+				from: '"Matchtaurant" <matchtaurant@hotmail.com>', // this is the sender
+				to: savedUser.email, // this is the receiver
+				subject: "You are now part of Matchtaurant!", // subject of the email
+				text: "Hi " + savedUser.username + ", welcome to the Matchtaurant community!", // text in the email
+			  });
+			res.redirect('/');
+
 		});
+
 	});
 }
 

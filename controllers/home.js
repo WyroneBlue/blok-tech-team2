@@ -1,9 +1,11 @@
 const { Restaurant } = require('../models');
 
 const index = async (req, res) => {
+
 	const page = {
 		title: "Home"
 	};
+	
 	const restaurants = await Restaurant.find().lean();
 	res.status(200).render('home', { 
 		page: page,

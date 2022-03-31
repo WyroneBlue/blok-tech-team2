@@ -4,8 +4,10 @@ $errorpage-bg: #2C3338;
 $white: white;
 
 
-.error {
+body.error {
     background-color: $errorpage-bg;
+    height: 100%;
+    background-image: none;
 
     main {
         padding: 1em;
@@ -17,7 +19,7 @@ $white: white;
 
         section {
 
-            background: url(/static/images/ghostbg.svg) no-repeat 50% 14%;
+            background: url(../../public/images/ghostbg.svg) no-repeat 50% 14%;
             display: grid;
             text-align: center;
             justify-content: center;

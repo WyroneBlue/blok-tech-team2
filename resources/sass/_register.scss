@@ -1,27 +1,5 @@
-$mainteam-color: #FFED74;
-$mainteam-color-hover: #a39956;
-
-$font-color: #333334;
-$main-font: 'Poppins', sans-serif;
-$input-border-color: #B8C0D7;
-$input-bg-color: #F4F6FC;
-$black-color: black;
-$validate-color:#63d64c;
-$errorpage-bg: #2C3338;
-$white: white;
-$btn-primary-hover: #2d328f;
-$link-color: #6168F3;
-$warning-color: #8b0000;
 
 .register{
-
-    // background: #ebf2ff;
-    background: linear-gradient(4deg, #ebf2ff 0%, #fff 100%);
-    background-repeat: no-repeat;
-    // height: 100vh;
-    height: 160%;
-    font-family: "poppins",sans-serif;
-
     
     .bg {
         clip-path: circle(54.4% at 50% 0);
@@ -209,61 +187,61 @@ $warning-color: #8b0000;
     
     }
 
-    .preferences {
-        list-style-type: none;
-        margin: auto;
-        /*   padding: 1em; */
-        padding: 0 calc((100% - 24em) / 2) 1em;
-        font-family: "poppins", sans-serif;
-        font-size: 1.3em;
     
-        li {
-            float: left;
-            margin: 1em .5em;
-        
-            width: 5em;
-            height: 2.2em;
-            position: relative;
-            text-align: center;
-            border-radius: .5em;
-            color: #8496cb;
-            font-weight: 500;
-            background-color: #c5d3f7;;
-        }
-    
-        label,
-        input {
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-        }
-    
-        input[type="radio"] {
-            opacity: 0.01;
-            z-index: 100;
-        }
-    
-        input[type="radio"]:checked+label,
-        .checkedradio+label {
-            background: #2C3338;
-            color: white;
-            transition: .2s ease;
-        
-        }
-    
-        label {
-            padding: 5px;
-            border-radius: .5em;
-            cursor: pointer;
-            z-index: 90;
-        }
-    
-        label:hover {
-            background: #2C3338;
-            transition: .2s ease;
-        }
-    }
+.preferences {
+    list-style-type: none;
+    margin: auto;
+    padding: 1em calc((100% - 27em) / 2);
+    font-family: "poppins", sans-serif;
+  
+  li {
+    float: left;
+    margin: 1em .5em;
+    width: 100px;
+    height: 40px;
+    position: relative;
+    text-align: center;
+    border-radius: .5em;
+    color: #8496cb;
+    font-weight: 500;
+    background-color: #c5d3f7;
+  }
+  
+  label,
+  input {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+  
+  input[type="checkbox"] {
+    opacity: 0.01;
+    z-index: 100;
+  }
+  
+  input[type="checkbox"]:checked+label,
+  .Checkedcheckbox+label 
+    {
+    background: #2C3338;
+    color: white;
+    transition: .2s ease;
+  
+  }
+  
+  label {
+    padding: 5px;
+    border-radius: .5em;
+    cursor: pointer;
+    z-index: 90;
+  }
+  
+    label:hover {
+    background: #abb8d9;
+    color: white;
+    transition: .2s ease;
+  }
+  }
 }

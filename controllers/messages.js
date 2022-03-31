@@ -8,11 +8,15 @@ const index = async(req, res) => {
 	};
 	
 	session = req.session;
-	const user = await User.findOne({ username: session.username}).lean();
-	const chats = await Chat.find({ $or: [{inviter: user}, {receiver: user}] })
-	.populate('inviter').populate('receiver').lean();
+
+	const chats = await Chat.find({ $or: [{inviter: session.authUser}, {receiver: session.authUser}] })
+	.populate('receiver')
+	.populate('inviter')
+	.lean();
+
 	res.status(200).render('messages/index', { 
 		page: page,
+		authUser: session.authUser,
 		users: chats,
 	});
 };
@@ -22,17 +26,19 @@ const chat = (req, res) => {
 	const page = {
 		title: "Chat"
 	};
-
+	session = req.session;
 	const promises = [
-		User.findOne({ username: 'ymaroblue' }).lean(), 
+		User.findOne({ username: session.authUser.username }).lean(), 
 		User.findOne({ username: req.params.username }).lean(), 
 	];
 
 	Promise.all(promises)
 	.then(async result => {
-		const [inviter, receiver] = result;
-		
-		const chat = await Chat.findOne({ inviter: inviter, receiver: receiver }).populate('receiver')
+		const [user1, user2] = result;
+
+		const chat = await Chat.findOne({ $or: [{inviter: user1, receiver: user2 }, {inviter: user2, receiver: user1 }] })
+		.populate('receiver')
+		.populate('inviter')
 		.populate({ 
 			path: 'history.user',
 			model: User
@@ -47,6 +53,7 @@ const chat = (req, res) => {
 		res.status(200).render('messages/chat', { 
 			page: page,
 			chat: chat,
+			authUser: session.authUser,
 			accepted: accepted,
 		});
 	})
@@ -54,30 +61,33 @@ const chat = (req, res) => {
 
 const create = async(req, res) => {
     
+	session = req.session;
+
 	const promises = [
-		User.findOne({ username: 'ymaroblue' }).lean(), 
+		User.findOne({ username: session.authUser.username }).lean(), 
 		User.findOne({ username: req.params.username }).lean(), 
 	];
 
 	Promise.all(promises)
 	.then(async result => {
-		const [inviter, receiver] = result;
+		const [authUser, otherUser] = result;
 
-		const checkChat = await Chat.findOne({ inviter: inviter, receiver: receiver });
+		const checkChat = await Chat.findOne({ $or: [{inviter: authUser, receiver: otherUser }, {inviter: otherUser, receiver: authUser }] })
 		if(checkChat){
-			res.redirect(`/messages/${receiver.username}/chat`);
+			res.redirect(`/messages/${otherUser.username}/chat`);
 		} else {
 
 			const form = {
-				inviter: inviter,
-				receiver: receiver,
+				inviter: authUser,
+				receiver: otherUser,
+				name: `${authUser.username}-${otherUser.username}`
 			};
-
+			
 			const chat = new Chat(form);
 		
 			chat.save((err) => {
 				if (err) return handleError(err);
-				res.redirect(`/messages/${receiver.username}/chat`);
+				res.redirect(`/messages/${otherUser.username}/chat`);
 			});
 		}
 	});
@@ -85,22 +95,24 @@ const create = async(req, res) => {
 
 const update = async (req, res) => {
     
+	session = req.session;
+
 	const promises = [
-		User.findOne({ username: 'ymaroblue' }).lean(), 
+		User.findOne({ username: session.authUser.username }).lean(), 
 		User.findOne({ username: req.params.username }).lean(), 
 	];
 
 	Promise.all(promises)
 	.then(async result => {
-		const [inviter, receiver] = result;
+		const [authUser, otherUser] = result;
 
-		const chat = await Chat.findOne({ inviter: inviter, receiver: receiver})
+		const chat = await Chat.findOne({ $or: [{inviter: authUser, receiver: otherUser }, {inviter: otherUser, receiver: authUser }] })
 		if(chat && chat.accepted){
 			const input = req.body;
 			const newMessage = {
 				message: input.msg,
 				date: input.date,
-				user: inviter,
+				user: authUser,
 			}
 			chat.history.push(newMessage);
 			chat.save((err) => {
@@ -108,7 +120,10 @@ const update = async (req, res) => {
 				res.send();
 			});
 		} else {
-			res.send('not_accepted');
+			const response = JSON.stringify({
+				error: 'not_accepted',
+			})
+			res.send(response);
 		}
 	})
 };
