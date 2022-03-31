@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { loggedIn, guest, viewCounter } = require('../middleware');
 
 const home  = require('./home');
 const restaurants  = require('./restaurants');
@@ -10,6 +11,7 @@ const error = require('./error');
 const login = require('./login');
 const account = require('./account');
 
+router.use(viewCounter);
 router.use('/', home);
 router.use('/restaurants', restaurants);
 router.use('/messages', loggedIn, messages);

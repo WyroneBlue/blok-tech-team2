@@ -1,6 +1,10 @@
-const index = (req, res) => {
+const { User, Chat } = require('../models');
+let session;
+
+const index = async(req, res) => {
+
 	const page = {
-		title: "Matched Users"
+		title: "All messages"
 	};
 	
 	session = req.session;
@@ -18,6 +22,7 @@ const index = (req, res) => {
 };
 
 const chat = (req, res) => {
+	
 	const page = {
 		title: "Chat"
 	};
@@ -126,4 +131,6 @@ const update = async (req, res) => {
 module.exports = {
 	index: index,
 	chat: chat,
+	create: create,
+	update: update,
 };

@@ -18,7 +18,8 @@ db();
 
 // BodyParser
 const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const urlencodedParser = bodyParser.urlencoded({ extended: true });
+app.use(bodyParser.json());
 
 // sessions
 const useSession = session({
@@ -63,6 +64,7 @@ app.listen(PORT, () => {
 });
 
 io.on('connection', socket => {
+	// console.log(socket.id);
 	socket.on('new-msg-sent', msg => {
 		socket.broadcast.emit('new-msg', msg);
 	})
