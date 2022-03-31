@@ -102,5 +102,5 @@ module.exports = {
 	login: login,
 	loginUser: loginUser,
 	register: register,
-	saveUser: saveUser
+	saveUser: saveUser,
 };
