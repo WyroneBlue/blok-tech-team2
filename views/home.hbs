@@ -1,3 +1,30 @@
-<header>
+{{!-- {{> head }} --}}
+<section class="discover">
     <h1>Discover</h1>
-</header>
+    <ul>
+        {{#each restaurants}}
+        <li>
+            <section class="cards">
+                <h2>{{ name }} </h2>
+                {{#each restaurant.cuisines}}
+                    <h3 class="{{ color }}">{{ name }}</h3>
+                {{/each}}
+                <p>{{ location.adress }}</p>
+                <img src= {{ image.bg.src }} alt= {{ image.bg.alt }}>
+            </section>
+            <section class="buttons">
+                <form action="/dislike" method="post">
+                    <button class="dislike" type="submit">
+                        <img src="/public/images/icons/cross-card.svg" alt="cross icon">
+                    </button>
+                </form>
+                <form action="/like" method="post">
+                    <button class="like" type="submit">
+                        <img src="/public/images/icons/heart-card.svg" alt="heart icon">
+                    </button>
+                </form>
+            </section>
+        </li>
+        {{/each}}
+    </ul>
+</section>

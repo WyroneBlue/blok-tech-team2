@@ -1,0 +1,100 @@
+#loginpagina{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    margin-top:7em;
+    article{
+        h1{
+            font-size:3em
+        }
+        p{
+            font-weight:200;
+            font-size:1.3em;
+            width:15em;
+        }
+    }
+    form{
+        display:flex;
+        flex-direction:column;
+        text-align:left;
+        margin-top:6em;
+        width:calc(100% - 20%);
+        label{
+            font-size:1.5em;
+            color:#363636;
+            margin-bottom:.5em;
+            font-weight:600
+        }
+        input{
+            font-size:1.5em;
+            color:#d6dce7;
+            margin-bottom:.5em;
+            background-color:#ebf2ff;
+            border-radius:1em;
+            border:0.2em solid #d6dce7;
+            padding:.9em;
+            font-family: $main-font;
+        }
+        #button{
+            border:none;
+            background-color:black;
+            padding:1em;
+            margin-top:1.4em
+        }
+        p:nth-of-type(1){
+            text-align:right;
+            color:#bfc4ce
+        }
+        a{
+            text-decoration:none;
+        }
+    }
+    }
+
+#welkompagina{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    margin-top:7em;
+    article:first-of-type{
+        margin-top:1em;
+        h1{
+            font-size:2.3em
+        }
+        p{
+            font-weight:200;
+            font-size:1.3em;
+            width:calc(100% - 10%);
+            margin-left:1.3em;  
+        }
+    }
+    #button{
+        border:none;
+        padding:.6em;
+        width:calc(100% - 20%);
+        font-size:1.8em;
+        border-radius:.6em;
+        margin-top:.5em;
+        font-family:"poppins",sans-serif;
+    }
+    #button:nth-of-type(1){
+        background-color:black;
+        color:white;
+    }
+    #button:nth-of-type(2){
+        background-color:grey;
+        margin-bottom:.4em;
+    }    
+    #dotsgrey{
+        position:absolute;
+        top:2em;
+        right:2em;
+        height:6em;
+    }  
+    a{
+        text-decoration: none;
+        color: black;
+    }
+}

@@ -3,6 +3,13 @@ const express = require('express');
 const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
+const IO_PORT = process.env.IO_PORT || 8080;
+const session = require('express-session')
+const io = require('socket.io')(IO_PORT, {
+	cors: {
+		origin: "*"
+	}
+});
 
 // Database (MongoDB)
 require('dotenv').config();
@@ -11,7 +18,16 @@ db();
 
 // BodyParser
 const bodyParser = require('body-parser');
-const urlencodedParser = bodyParser.urlencoded({ extended: false });
+const urlencodedParser = bodyParser.urlencoded({ extended: true });
+app.use(bodyParser.json());
+
+// sessions
+const useSession = session({
+	secret: 'keyboard cat',
+	resave: false,
+	saveUninitialized: true
+})
+app.use(useSession);
 
 // Routes
 const routes = require("./routes");
@@ -32,6 +48,23 @@ app.use('/public', express.static(path.join(__dirname, 'public')));
 // Use Routes
 app.use('/', urlencodedParser, routes);
 
+// Websockets
+io.on('connection', socket => {
+	socket.on('join-chat', (name) => {
+		socket.join(name);
+	})
+
+	socket.on('new-msg-sent', chat => {
+		socket.to(chat.name).emit('new-msg', chat.msg);
+	})
+})
+
 app.listen(PORT, () => {
   	console.log(`Example app listening on port ${PORT}`);
 });
+
+
+
+
+
+  
