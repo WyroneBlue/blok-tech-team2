@@ -2,7 +2,11 @@
     <a href="/messages">
         <img src="/public/images/arrow-left.svg" alt="Back image"> back
     </a>
-    <h1>{{ chat.receiver.name }}</h1>
+    {{#compare chat.receiver.username authUser.username}}
+        <h1>{{ ../chat.inviter.name }}</h1>
+    {{else}}
+        <h1>{{ ../chat.receiver.name }}</h1>
+    {{/compare}}
     {{#unless accepted}}
         <span>This chat has not been accepted yet</span>
     {{/unless}}
@@ -10,9 +14,8 @@
 <section id="message-container">
     <ul>
         {{#each chat.history}}
-            
             <li 
-            {{#compare user.username 'ymaroblue'}}
+            {{#compare user.username ../authUser.username}}
                 class="sender"
             {{else}}
                 class="receiver"
@@ -20,7 +23,6 @@
             >
                 <p>{{ message }}</p>
                 <span>{{date date "h:mm"}}</span>
-
             </li>
         {{/each}}
     </ul>
@@ -28,6 +30,7 @@
 <section id="chat-container">
     <form>
         <input type="text" name="message" id="message">
+            <input type="hidden" name="chatName" id="chatName" value="{{ chat.name }}">
         <button type="submit">Send message</button>
     </form>
 </section>

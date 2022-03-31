@@ -17,41 +17,42 @@ $shadow-color: rgba(33, 0, 165, 0.2);
     justify-content: center;
     align-items: center;
     list-style: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
     
     li {
       background-color: $main-white;
       width: 80vw;
-      border-radius: 1em;
+      border-radius: 1.5em;
       display: flex;
       justify-content: center;
       align-items: center;
       flex-flow: column nowrap;
       gap: .7em;
       box-shadow: 0 0 10px $shadow-color;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
 
 
       .cards {
         position: relative;
-        height: 20em;
+        aspect-ratio: 1 / 1.2;
+        display: flex;
         h2 {
           color: $main-white;
-          font-size: 2em;
+          font-size: 1.8em;
           font-weight: 500;
           position: absolute;
-          bottom: 1em;
+          bottom: 2em;
           left: .5em;
           z-index: 1;
         }
         p {
           color: $main-white;
           font-size: 1em;
+          font-weight: 500;
           position: absolute;
-          bottom: 1em;
+          bottom: 1.5em;
           left: 1em;
           z-index: 2;
         }
