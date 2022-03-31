@@ -17,6 +17,16 @@ const RestaurantSchema = new Schema({
 		name:  { type: String, default: '' },
 		color: { type: String, default: '' }
 	}],	
+	images: {
+		bg: {
+			src: { type: String, default: '' },
+			alt: { type: String, default: '' },
+		},
+		slider: [{  
+			src: { type: String, default: '' },
+			alt: { type: String, default: '' },
+		}]
+	},	
 });
 
 const Restaurant = mongoose.model('Restaurant', RestaurantSchema);
