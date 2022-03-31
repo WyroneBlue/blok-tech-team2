@@ -2,23 +2,7 @@ const { User, Restaurant, Review } = require('../models');
 const { avgFromObject } = require('../utils/Functions');
 
 const index = (req, res) => {
-	
-	const promises = [
-		Restaurant.find({}).lean()
-	];
-
-	Promise.all(promises)
-		.then(result => {
-			const [restaurants] = result;
-			const page = {
-				title: "Restaurants"
-			};
-
-			res.status(200).render('restaurant/index', { 
-				page: page,
-				restaurants: restaurants,
-			});
-		});
+	res.redirect('/');
 };
 
 const show = (req, res) => {
@@ -39,7 +23,7 @@ const show = (req, res) => {
 
 			const avg = avgFromObject(reviews, 'rating').toFixed(1);
 				
-			res.status(200).render('restaurant/show', { 
+			res.status(200).render('restaurants/show', { 
 				page: page,
 				restaurant: restaurant,
 				users: users,
