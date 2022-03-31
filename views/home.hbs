@@ -9,8 +9,8 @@
                 {{#each restaurant.cuisines}}
                     <h3 class="{{ color }}">{{ name }}</h3>
                 {{/each}}
-                <p>{{ location.adress }}</p>
-                <img src= {{ image.bg.src }} alt= {{ image.bg.alt }}>
+                <p>{{ location.address }}</p>
+                <img src="{{ images.bg.src }}" alt="{{ images.bg.alt }}">
             </section>
             <section class="buttons">
                 <form action="/dislike" method="post">
