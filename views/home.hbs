@@ -6,8 +6,11 @@
         <li>
             <section class="cards">
                 <h2>{{ name }} </h2>
-                <p>{{ location }}</p>
-                <img src="/public/images/tijdelijke afbeelding.jpg" alt="">
+                {{#each restaurant.cuisines}}
+                    <h3 class="{{ color }}">{{ name }}</h3>
+                {{/each}}
+                <p>{{ location.adress }}</p>
+                <img src= {{ image.bg.src }} alt= {{ image.bg.alt }}>
             </section>
             <section class="buttons">
                 <form action="/dislike" method="post">
