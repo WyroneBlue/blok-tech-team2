@@ -1,6 +1,9 @@
 const { User, Restaurant, Review } = require('../models');
+let session;
 
 const index = (req, res) => {
+
+	session = req.session;
 
 	const promises = [
 		Restaurant.findOne({slug: req.params.slug}).lean(), 
@@ -17,6 +20,7 @@ const index = (req, res) => {
 	
 			res.status(200).render('restaurants/reviews/index', { 
 				page: page,
+				authUser: session.authUser,
 				restaurant: restaurant,
 				reviews: reviews,
 			});
