@@ -8,13 +8,12 @@ const account = async(req, res) => {
 	};
 	
 	const user = await User.findOne({ username: session.authUser.username}).lean();
-	const region = await User.findOne({ region: session.authUser.region}).lean();
+	
 	console.log(user);
 	res.status(200).render('profile/account', { 
 		page: page,
 		layout: false,
 		user: user,
-		region: region
 	});
 };
 
