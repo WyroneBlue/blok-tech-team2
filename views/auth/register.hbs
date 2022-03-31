@@ -1,0 +1,80 @@
+{{> head }}
+<body class="register">
+    <div class="bg"></div>
+
+    <div class="arrow">
+        <a href="/login"><img src="../../public/images/arrow-left.svg" alt="arrow that points to the left">Back</a>
+    </div>
+
+    <main>
+        <section class="Intro-signup">
+            <h1>Sign up</h1>
+            <p>Let's get you started.
+            </p>
+        </section>
+
+        <form action="/register" method="post" id="signupform">
+
+            <fieldset>
+
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="John Doe">
+
+                <label for="username">Full name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe">
+
+                <label for="email">Email</label>
+                <input type="email" id="mail" name="email" required placeholder="user@email.com">
+
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required placeholder="password">
+
+                <label for="school">Region</label>
+                <input type="name" id="region" name="region" required placeholder="region">
+
+            </fieldset>
+
+
+            <h2>Preferences</h2>
+            <ul class="preferences">
+                <li>
+                    <input type="checkbox" id="allfood" name="foodpreferences" />
+                    <label for="allfood">All</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="italianfood" name="foodpreferences" />
+                    <label for="italianfood">Italian</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="mexicanfood" name="foodpreferences" />
+                    <label for="mexicanfood">Mexican</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="fastfood" name="foodpreferences" />
+                    <label for="fastfood">Fastfood</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="frenchfood" name="foodpreferences" />
+                    <label for="frenchfood">French</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" id="asianfood" name="foodpreferences" />
+                    <label for="asianfood">Asian</label>
+                </li>
+            </ul>
+
+            <fieldset>
+                <div>
+                <input type="checkbox" id="terms" name="terms_conditions" value="yes">
+                <label for="terms">Agree to <a href="#">terms and conditions</a></label>
+                </div>
+
+                <button id="btn" type="submit">Create account</button>
+            <fieldset>
+        </form>
+
+
+    </main>
+    {{!-- <script src="../static/script.js"></script> --}}
+</body>
