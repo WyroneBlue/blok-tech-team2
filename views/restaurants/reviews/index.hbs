@@ -17,10 +17,10 @@
     </section>
     <section id="middle">
         <section class="snap">
-            <img src="/public/images/restaurant.jpg" alt="">
-            <img src="/public/images/restaurant.jpg" alt="">
-            <img src="/public/images/restaurant.jpg" alt="">
-            <img src="/public/images/restaurant.jpg" alt="">
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt}}">
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt}}">
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt}}">
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt}}">
         </section>
         <section>
             <div>
@@ -57,7 +57,7 @@
                             </p>
                         </div>
                     </section>
-                    {{#compare user._id}}
+                    {{#compare user._id ../authUser._id}}
                         <a href="/restaurants/{{ ../../restaurant.slug }}/reviews/{{ ../_id}}/edit">
                             aanpassen
                         </a>
