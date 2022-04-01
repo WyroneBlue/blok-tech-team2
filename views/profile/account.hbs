@@ -1,0 +1,88 @@
+{{> head }}
+    {{> header }}
+        {{{body}}}
+<section id="accountheader">
+    <article>
+        <h1>Profile</h1>
+        <a href="#"><p>Sign out</p></a>
+    </article>
+    <button id="editbutton"><img src="public/images/icons/edit-icon.svg"></button>
+</section>
+
+<section id="accountpagina">
+    <article>
+        <img src="public/images/icons/profile-user-icon.svg">
+        <h2>{{user.name}}</h2>
+        <p>{{user.region}}</p>
+        {{!-- Doet t nog niet --}}
+        <p>{{user.preference}}</p> 
+    </article>
+    <article>
+        <section>
+            <img src="public/images/icons/favorite-icon.svg">
+            <h2>Favorites</h2>
+        </section>
+    </article>
+</section>
+
+<section id="hover">
+    <h2 id="titel">Edit info</h2>
+    <form action="/account/updateUser" method="post" id="signupform">
+    <button id="closeicon"><img src="public/images/icons/close-icon.svg"></button>
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required placeholder="John Doe" value="{{user.username}}">
+
+                <label for="username">Full name</label>
+                <input type="text" id="name" name="name" required placeholder="John Doe" value="{{user.name}}">
+
+                <label for="email">Email</label>
+                <input type="email" id="mail" name="email" required placeholder="user@email.com" value="{{user.email}}">
+
+                <label for="school">Region</label>
+                <input type="name" id="region" name="region" required placeholder="region"  value="{{user.region}}">
+
+
+            <h2>Preferences</h2>
+            <ul class="preferences">
+                <li>
+                    <input type="checkbox" id="allfood" name="foodpreferences" />
+                    <label for="allfood">All</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="italianfood" name="foodpreferences" />
+                    <label for="italianfood">Italian</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="mexicanfood" name="foodpreferences" />
+                    <label for="mexicanfood">Mexican</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="fastfood" name="foodpreferences" />
+                    <label for="fastfood">Fastfood</label>
+                </li>
+                <li>
+                    <input type="checkbox" id="frenchfood" name="foodpreferences" />
+                    <label for="frenchfood">French</label>
+                </li>
+
+                <li>
+                    <input type="checkbox" id="asianfood" name="foodpreferences" />
+                    <label for="asianfood">Asian</label>
+                </li>
+            </ul>
+            
+            <input type="submit" id="buttonchange" value="Save changes">
+        </form>
+
+        <form action="/account/deleteUser" method="post">
+            <input type="submit" id="buttondel" value="Delete account">
+        </form>
+
+        <form action="/account/logOut" method="post">
+            <input type="submit" id="buttonlogout" value="Log out">
+        </form>
+
+
+</section>
+{{> nav }}
+<script src="/public/js/account.js"></script>

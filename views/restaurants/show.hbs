@@ -17,10 +17,10 @@
     </section>
     <section id="middle">
         <section class="snap">
-            <img src="/public/images/restaurant.jpg" alt="">
-            <img src="/public/images/restaurant.jpg" alt="">
-            <img src="/public/images/restaurant.jpg" alt="">
-            <img src="/public/images/restaurant.jpg" alt="">
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt}}">
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt}}">
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt}}">
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt}}">
         </section>
         <section>
             <div>
@@ -55,7 +55,7 @@
         <ul class="snap">
             {{#each users}}
                 <li>
-                    <a href="#">
+                    <a href="/messages/{{ username }}/new">
                         <img src="{{ img }}" alt="User Image {{add @index 1 }}">
                         <p>{{ name }}</p>
                     </a>
