@@ -11,7 +11,7 @@
 
 <section id="accountpagina">
     <article>
-        <img>
+        <img src="public/images/icons/profile-user-icon.svg">
         <h2>{{user.name}}</h2>
         <p>{{user.region}}</p>
         {{!-- Doet t nog niet --}}
@@ -19,15 +19,15 @@
     </article>
     <article>
         <section>
-            <img src="public/images/icons/favorite-icon.svg">
+            <img src="public/images/icons/favorite-icon.svg" class="editbutton">
             <h2>Favorites</h2>
         </section>
     </article>
 </section>
 
-<section id="hover">
+<section class="hover">
     <h2 id="titel">Edit info</h2>
-
+    <img src="public/images/icons/close-icon.svg" class="closeicon">
     <form action="/update" method="post" id="signupform">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required placeholder="John Doe" value="{{user.username}}">
@@ -85,3 +85,4 @@
 
 </section>
 {{> nav }}
+<script src="/public/js/account.js"></script>
