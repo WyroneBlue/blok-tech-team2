@@ -1,7 +1,8 @@
 const { Restaurant } = require('../models');
+let session;
 
 const index = async (req, res) => {
-
+	session = req.session;
 	const page = {
 		title: "Home"
 	};
@@ -9,7 +10,8 @@ const index = async (req, res) => {
 	const restaurants = await Restaurant.find().lean();
 	res.status(200).render('home', { 
 		page: page,
-		restaurants: restaurants
+		restaurants: restaurants,
+		authUser: session.authUser
 	});
 };
 
