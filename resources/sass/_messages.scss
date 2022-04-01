@@ -154,9 +154,10 @@
         justify-content: center;
         gap: 10px;
 
-        input{
+        textarea{
             border-radius: .5em;
             padding: 1em 1.5em;
+            resize: none;
         }
         
         button{
