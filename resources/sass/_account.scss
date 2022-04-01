@@ -21,10 +21,13 @@
             margin-top: -1em;
         }
     }
-    img{
+    #editbutton{
         margin-right: 2em;
         z-index: 10;
         margin-top: 2em;
+        background: none;
+        border: none;
+        cursor: pointer;
     }
 }
 #accountpagina{
@@ -56,16 +59,22 @@
     }
 }
 
-.open{
+#hover.open{
     transform: translatex(0%);
+    transition: .25s ease;
 }
-.closeicon{
+
+#closeicon{
     margin-top: 1em;
     position: absolute;
     right: 0;
     margin-right: 1em;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
-.hover{
+
+#hover{
     transform: translatex(100%);
     width: 100%;
     height: max-content;
@@ -77,6 +86,8 @@
     flex-direction: column;
     align-items: center;
     text-align: left;
+    transition: .25s ease;
+
     #titel{
         margin-left: 1em;
         font-size: 2em;
