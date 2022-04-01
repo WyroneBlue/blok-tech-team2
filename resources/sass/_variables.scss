@@ -21,12 +21,27 @@ $main-font: 'Poppins', sans-serif;
 $input-border-color: #B8C0D7;
 $input-bg-color: #F4F6FC;
 $black-color: black;
+$black-color-light: rgba($black-color, 0.8);
 $validate-color:#63d64c;
 $errorpage-bg: #2C3338;
 $white: white;
 $btn-primary-hover: #2d328f;
 $link-color: #6168F3;
 $warning-color: #8b0000;
+$main-white: white;
+
+// border
+$border-light: 2px solid rgba($black-color, 0.1);
+$radius-standard: .5em;
+$radius-pill: 1.5em;
+$radius-round: 50%;
+
+/* 
+likes & home
+*/
+$shadow-color: rgba(33, 0, 165, 0.2);
+
+$footer-height: 4em;
 
 /* 
   Einde Custom Properties

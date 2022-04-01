@@ -80,14 +80,14 @@ const create = async(req, res) => {
 			const form = {
 				inviter: authUser,
 				receiver: otherUser,
-				name: `${authUser.userName}-${otherUser.userName}`
+				name: `${authUser.username}-${otherUser.username}`
 			};
 			
 			const chat = new Chat(form);
 		
 			chat.save((err) => {
 				if (err) return handleError(err);
-				res.redirect(`/messages/${receiver.username}/chat`);
+				res.redirect(`/messages/${otherUser.username}/chat`);
 			});
 		}
 	});

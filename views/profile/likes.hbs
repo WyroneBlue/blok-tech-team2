@@ -15,4 +15,17 @@
     </li>
   </ul>
 
+    {{#each likes}}
+    <li>
+      <a href="/restaurants/{{restaurant.slug}}">
+        <h2>{{ restaurant.name }}</h2>
+        {{#each restaurant.cuisines}}
+          <h3 class="{{ color }}">{{ name }}</h3>
+        {{/each}}
+        <p>{{ location.adress }}</p>
+        <img src= {{ image.bg.src }} alt= {{ image.bg.alt }}>
+      </a>
+    </li>
+    {{/each}}
+  </ul>
 </section>

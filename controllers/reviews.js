@@ -1,6 +1,9 @@
 const { User, Restaurant, Review } = require('../models');
+let session;
 
 const index = (req, res) => {
+
+	session = req.session;
 
 	const promises = [
 		Restaurant.findOne({slug: req.params.slug}).lean(), 
@@ -14,9 +17,10 @@ const index = (req, res) => {
 			const page = {
 				title: `${restaurant.name} reviews`
 			};
-	
+
 			res.status(200).render('restaurants/reviews/index', { 
 				page: page,
+				authUser: session.authUser,
 				restaurant: restaurant,
 				reviews: reviews,
 			});
@@ -41,20 +45,21 @@ const form = (req, res) => {
 
 const save = (req, res) => {
 
-	Promise.all([User.findOne({_id: process.env.USER_ID}).lean()])
+	session = req.session;
+	
+	Promise.all([User.findOne({username: session.authUser.username}).lean()])
 		.then(result => {
 			const [user] = result;
 
 			const input = req.body;
 			const form = {
 				restaurant_slug: req.params.slug,
-				user_id: process.env.USER_ID,
+				user_id: user._id,
 				rating: input.rating,
 				remark: input.remark,
 				anon: input.anon === 'on' ? true : false,
 				user: user
 			};
-
 
 			const review = new Review(form);
 		

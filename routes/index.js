@@ -18,7 +18,7 @@ router.use('/messages', loggedIn, messages);
 router.use('/likes', likes);
 router.use('/register', register);
 router.use('/login', guest, login);
-router.use('/account', account);
+router.use('/account', loggedIn, account);
 router.use('*', error);
 
 module.exports = router;

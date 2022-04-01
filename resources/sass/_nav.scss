@@ -1,15 +1,35 @@
 #navbar {
-    background-color: $white-color;
-    margin: 2em;
-    margin-left: 1em;
-    bottom: 0;
+    background-color: #e6efff;    
     position: fixed;
-    width: calc(100% - 10%);
-    border-radius: 2em;
+    border-radius: 20em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    padding-top: 0.4em;
+    height: $footer-height;
+    left: 1em;
+    right: 1em;
+    bottom: 2em;
+
     img {
-        padding: 1em;
+        transition: .2s ease;
+        height: 100%;
+        width: 100%;
     }
+    
+    a {
+        height: 50px;
+        width: 50px;
+        padding: 0.8em;
+
+        &:hover {
+            background-color: #FFED74;
+            border-radius: 15em;
+            border: none;
+            transition: .2s ease;
+            z-index: 1;
+        }
+
+    }
+      
 }
