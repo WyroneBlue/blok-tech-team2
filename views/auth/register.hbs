@@ -18,19 +18,19 @@
             <fieldset>
 
                 <label for="username">Username</label>
-                <input type="text" id="username" name="username" required placeholder="John Doe">
+                <input type="text" id="username" name="username"  placeholder="John Doe">
 
                 <label for="username">Full name</label>
-                <input type="text" id="name" name="name" required placeholder="John Doe">
+                <input type="text" id="name" name="name"  placeholder="John Doe">
 
                 <label for="email">Email</label>
-                <input type="email" id="mail" name="email" required placeholder="user@email.com">
+                <input type="email" id="mail" name="email"  placeholder="user@email.com">
 
                 <label for="password">Password</label>
-                <input type="password" id="password" name="password" required placeholder="password">
+                <input type="password" id="password" name="password"  placeholder="password">
 
                 <label for="school">Region</label>
-                <input type="name" id="region" name="region" required placeholder="region">
+                <input type="name" id="region" name="region" placeholder="region">
 
             </fieldset>
 
@@ -64,6 +64,8 @@
                 </li>
             </ul>
 
+            <label id="error"></label>
+            
             <fieldset>
                 <div>
                 <input type="checkbox" id="terms" name="terms_conditions" value="yes">
@@ -72,9 +74,10 @@
 
                 <button id="btn" type="submit">Create account</button>
             <fieldset>
+
         </form>
 
 
     </main>
-    {{!-- <script src="../static/script.js"></script> --}}
+    <script src="/public/js/register.js"></script>
 </body>
