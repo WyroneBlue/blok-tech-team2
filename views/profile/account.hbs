@@ -28,7 +28,7 @@
 <section class="hover">
     <h2 id="titel">Edit info</h2>
     <img src="public/images/icons/close-icon.svg" class="closeicon">
-    <form action="/update" method="post" id="signupform">
+    <form action="/account/updateUser" method="post" id="signupform">
                 <label for="username">Username</label>
                 <input type="text" id="username" name="username" required placeholder="John Doe" value="{{user.username}}">
 
@@ -74,11 +74,11 @@
             <input type="submit" id="buttonchange" value="Save changes">
         </form>
 
-        <form action="/delete" method="post">
+        <form action="/account/deleteUser" method="post">
             <input type="submit" id="buttondel" value="Delete account">
         </form>
 
-        <form action="/uitloggen" method="post">
+        <form action="/account/logOut" method="post">
             <input type="submit" id="buttonlogout" value="Log out">
         </form>
 
