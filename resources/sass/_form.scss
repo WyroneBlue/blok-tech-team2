@@ -118,6 +118,30 @@ form{
     }
     }
 
+    #loginpagina #homescreen fieldset:last-of-type div {
+        display: flex;
+        padding: 1em calc((100% - 15em) / 2);
+    }
+    
+    .fouteInput {
+        display: block;
+    
+        color: red;
+        font-size: 1em;
+        font-family: $main-font;
+    }
+    
+    
+    form label#error.errorLabel{
+        display: block;
+        color: red;
+        font-weight: 600;
+        font-size: 1.5em;
+        padding: 1em;
+        font-family: $main-font;
+        text-align: center;
+    }
+
 #welkompagina{
     display:flex;
     flex-direction:column;

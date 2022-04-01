@@ -4,7 +4,6 @@ const authorizationController = require("../controllers/authorization");
 
 router.get('/', authorizationController.login);
 router.post('/', authorizationController.loginUser);
-router.post('/settings', authorizationController.settings);
 
 
 module.exports = router;
