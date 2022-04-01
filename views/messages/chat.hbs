@@ -11,7 +11,7 @@
         <span>This chat has not been accepted yet</span>
     {{/unless}}
 </section>
-<section id="message-container">
+<section id="chat-container">
     <ul>
         {{#each chat.history}}
             <li 
@@ -27,9 +27,9 @@
         {{/each}}
     </ul>
 </section>
-<section id="chat-container">
+<section id="message-container">
     <form>
-        <input type="text" name="message" id="message">
+        <textarea type="text" name="message" id="message" placeholder="Message..."></textarea>
         <input type="hidden" name="chatName" id="chatName" value="{{ chat.name }}">
         <button type="submit">Send message</button>
     </form>
