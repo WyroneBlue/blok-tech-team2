@@ -67,18 +67,6 @@ npm install
 npm run start
 ```
 
-<p>Clonen van project tech wiki</p>
-<p>Even zeker weten dat je in het goede mapje zit!</p>
-
-```
-cd blok-tech-team2
-```
-
-<p>Project tech wiki clonen</p>
-
-```
-git clone <linkje>
-```
 </section>
   
 <section>
