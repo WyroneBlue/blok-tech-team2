@@ -249,16 +249,25 @@
     flex-direction: row;
     flex-wrap: wrap;
     article{
-      background-color: hotpink;
-      width: 40%;
-      aspect-ratio: 1 / 1;
-      margin: 1em;
-      justify-content: flex-end;
-      align-items: center;
-      display: flex;
-      h2{
-        font-size: 1em;
+        background-color: hotpink;
+        width: 40%;
+        aspect-ratio: 1 / 1;
+        margin: 1em;
+        justify-content: flex-end;
+        align-items: center;
+        display: flex;
+        h2{
+          font-size: 1em;
+          position: absolute;
+          background-color: $primary-color;
+          width: 40%;
+          text-align: center;
+          margin-bottom: 1em;
+        }
+        img{
+          width: 100%;
+          height: auto;
+        }
       }
-    }
   }
 
