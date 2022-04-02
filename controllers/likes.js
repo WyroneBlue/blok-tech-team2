@@ -5,11 +5,10 @@ const index = (req, res) => {
 		title: "likes"
 	};
   
-	const likes = RestaurantLike.find({ user: session.authUser }).populate("restaurant").lean();
+	// const likes = RestaurantLike.find({ user: session.authUser }).populate("restaurant").lean();
 
 	res.status(200).render('profile/likes', { 
 		page: page,
-		likes: likes,
 	});
 };
 
@@ -30,6 +29,8 @@ const saveLike = (req, res) => {
 		// })
 	})
 }
+
+
 module.exports = {
 	index: index,
 	saveLike: saveLike,

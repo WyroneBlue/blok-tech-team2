@@ -1,31 +1,30 @@
 <section class="likes">
   <h1>Likes</h1>
-  <ul>
-    <li>
-      <h2>Restaurant</h2>
-      <h3>Cuisine</h3>
-      <p>Location</p>
-      <img src="/public/images/tijdelijke afbeelding.jpg" alt="">
-    </li>
-    <li>
-      <h2>Restaurant</h2>
-      <h3>Cuisine</h3>
-      <p>Location</p>
-      <img src="/public/images/tijdelijke afbeelding.jpg" alt="">
-    </li>
-  </ul>
+</section>
 
-    {{#each likes}}
-    <li>
-      <a href="/restaurants/{{restaurant.slug}}">
-        <h2>{{ restaurant.name }}</h2>
-        {{#each restaurant.cuisines}}
-          <h3 class="{{ color }}">{{ name }}</h3>
-        {{/each}}
-        <p>{{ location.adress }}</p>
-        <img src= {{ image.bg.src }} alt= {{ image.bg.alt }}>
-      </a>
-    </li>
-    {{/each}}
-  </ul>
+<section class="blokken">
+  <article>
+    <img>
+    <h2>Restaurantnaam</h2>
+  </article>
+
+  <article>
+    <img>
+    <h2>Restaurantnaam</h2>
+  </article>
+
+  <article>
+    <img>
+    <h2>Restaurantnaam</h2>
+  </article>
+
+  <article>
+    <img>
+    <h2>Restaurantnaam</h2>
+  </article>
+
+  <article>
+    <img>
+    <h2>Restaurantnaam</h2>
+  </article>
 </section>
