@@ -192,7 +192,7 @@
     list-style-type: none;
     margin: auto;
     padding: 1em calc((100% - 27em) / 2);
-    font-family: "poppins", sans-serif;
+    font-family: $main-font;
   
   li {
     float: left;
@@ -202,9 +202,9 @@
     position: relative;
     text-align: center;
     border-radius: .5em;
-    color: #8496cb;
+    color: $input-border-color;
     font-weight: 500;
-    background-color: #c5d3f7;
+    background-color: $grey-color;
   }
   
   label,
@@ -225,8 +225,8 @@
   input[type="checkbox"]:checked+label,
   .Checkedcheckbox+label 
     {
-    background: #2C3338;
-    color: white;
+    background: $alt-color;
+    color: $white-color;
     transition: .2s ease;
   
   }
@@ -239,8 +239,8 @@
   }
   
     label:hover {
-    background: #abb8d9;
-    color: white;
+    background: $input-border-color;
+    color: $white-color;
     transition: .2s ease;
   }
   }
@@ -254,7 +254,7 @@
 .fouteInput {
     display: block;
 
-    color: red;
+    color: $red-color;
     font-size: 1em;
     font-family: $main-font;
 }
@@ -262,7 +262,7 @@
 
 form label#error.errorLabel{
     display: block;
-    color: red;
+    color: $red-color;
     font-weight: 600;
     font-size: 1.5em;
     padding: 1em;

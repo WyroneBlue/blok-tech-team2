@@ -54,3 +54,22 @@
     }
   }
 }
+.blokken{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 7em;
+  article{
+    background-color: hotpink;
+    width: 40%;
+    aspect-ratio: 1 / 1;
+    margin: 1em;
+    justify-content: flex-end;
+    align-items: center;
+    display: flex;
+    h2{
+      font-size: 1em;
+    }
+  }
+}

@@ -9,10 +9,10 @@
 
         li{
             display: flex;
-            background-color: white;
+            background-color: $white-color;
             gap: 20px;
             border-radius: 10px;
-            box-shadow: 1px 1px 10px #0000002a;
+            box-shadow: 1px 1px 10px $black-color;
             
             
             a{
@@ -38,7 +38,7 @@
 
                     p{
                         font-weight: bold;
-                        color: black;
+                        color: $black-color;
                     }
                     
                     span{
@@ -66,7 +66,7 @@
         align-items: center;
         gap: 5px;
         text-decoration: none;
-        color: black;
+        color: $black-color;
         z-index: 100;
     }
 
@@ -115,7 +115,7 @@
 
             &.sender {
                 align-self: flex-end;
-                background-color: lightgreen;
+                background-color: $validate-color;
 
                 &.wait{
                     visibility: hidden;
@@ -128,7 +128,7 @@
             
             &.receiver {
                 align-self: flex-start;
-                background-color: lightblue;
+                background-color: $light-blue;
                 
                 &.new {
                     animation: msg-received .5s forwards;
@@ -147,7 +147,7 @@
     display: grid;
     align-content: center;
     padding: 0 20px 110px;
-    background-color: white;
+    background-color: $white-color;
 
     form{
         display: flex;
