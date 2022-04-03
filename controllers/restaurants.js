@@ -1,4 +1,4 @@
-const { User, Restaurant, Review } = require('../models');
+const { RestaurantSwipe, Restaurant, Review } = require('../models');
 const { avgFromObject } = require('../utils/Functions');
 
 const index = (req, res) => {
@@ -9,14 +9,14 @@ const show = (req, res) => {
 
 	const promises = [
 		Restaurant.findOne({slug: req.params.slug}).lean(), 
-		User.find({}).lean(), 
 		Review.find({ restaurant_slug: req.params.slug}).lean()
 	];
 
 	Promise.all(promises)
-		.then(result => {
-			const [restaurant, users, reviews] = result;
-
+		.then(async result => {
+			const [restaurant, reviews] = result;
+			
+			const userLikes = await RestaurantSwipe.find({ restaurant: restaurant }).populate('user').lean();
 			const page = {
 				title: restaurant.name
 			};
@@ -26,7 +26,7 @@ const show = (req, res) => {
 			res.status(200).render('restaurants/show', { 
 				page: page,
 				restaurant: restaurant,
-				users: users,
+				userLikes: userLikes,
 				avg: avg,
 			});
 		});

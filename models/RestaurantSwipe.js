@@ -4,12 +4,13 @@ const mongoose = require('mongoose');
 //Define a schema
 const Schema = mongoose.Schema;
 
-const RestaurantLikeSchema = new Schema({
+const RestaurantSwipeSchema = new Schema({
 	user: { type: Schema.Types.ObjectId, ref: 'User' },
 	restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant' },
+	swipe: String,
 	created: {type: Date, default: Date.now},
 });
 
-const RestaurantLike = mongoose.model('RestaurantLike', RestaurantLikeSchema);
+const RestaurantSwipe = mongoose.model('RestaurantSwipe', RestaurantSwipeSchema);
 
-module.exports = RestaurantLike;
+module.exports = RestaurantSwipe;

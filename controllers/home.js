@@ -1,4 +1,4 @@
-const { Restaurant, RestaurantLike, User } = require('../models');
+const { Restaurant, RestaurantSwipe, User } = require('../models');
 let session;
 
 const index = async (req, res) => {
@@ -13,7 +13,7 @@ const index = async (req, res) => {
 	if(session.authUser){
 
 		const authUser = await User.find({ username: session.authUser.username })
-		restaurantLikes = await RestaurantLike.find({ user: authUser }).populate('restaurant');
+		restaurantLikes = await RestaurantSwipe.find({ user: authUser }).populate('restaurant');
 		const authUserLikes = restaurantLikes.map((like) => {
 			return like.restaurant.slug;
 		});
