@@ -6,53 +6,6 @@
     left: .5em;
     letter-spacing: .07em;
   }
-
-  ul {
-    display: flex;
-    flex-flow: row wrap;
-    justify-content: space-evenly;
-    list-style: none;
-    position: relative;
-    top: 5.5em;
-
-    li {
-      width: 44%;
-      border-radius: 1em;
-      padding: .8em;
-      background-color: $white-color;
-      box-shadow: 0 0 10px $shadow-color;
-      position: relative;
-      color: $font-color;
-
-      h2 {
-        font-size: 1.1em;
-        z-index: 1;
-      }
-
-      h3 {
-        font-size: 1em;
-        font-weight: 600;
-        z-index: 2;
-      }
-
-      p {
-        font-size: 1em;
-        font-weight:600;
-        position: absolute;
-        z-index: 3;
-        top: 4.4em;
-        left: 1.2em;
-        color: $white-color;
-      }
-
-      img {
-        width: 100%;
-        filter: brightness(70%);
-        border-radius: .5em;
-        margin-top: .4em;
-      }
-    }
-  }
 }
 .blokken{
   display: flex;
@@ -70,6 +23,15 @@
     display: flex;
     h2{
       font-size: 1em;
+      position: absolute;
+      background-color: $primary-color;
+      width: 40%;
+      text-align: center;
+      margin-bottom: 1em;
+    }
+    img{
+      width: 100%;
+      height: auto;
     }
   }
 }
