@@ -5,9 +5,9 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const RestaurantLikeSchema = new Schema({
-	created: {type: Date, default: Date.now},
 	user: { type: Schema.Types.ObjectId, ref: 'User' },
-  restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant' }
+	restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant' },
+	created: {type: Date, default: Date.now},
 });
 
 const RestaurantLike = mongoose.model('RestaurantLike', RestaurantLikeSchema);

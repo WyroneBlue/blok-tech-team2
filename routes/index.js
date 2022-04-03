@@ -15,7 +15,7 @@ router.use(viewCounter);
 router.use('/', home);
 router.use('/restaurants', restaurants);
 router.use('/messages', loggedIn, messages);
-router.use('/likes', likes);
+router.use('/likes', loggedIn, likes);
 router.use('/register', register);
 router.use('/login', guest, login);
 router.use('/account', loggedIn, account);

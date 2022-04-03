@@ -1,33 +1,35 @@
-const { RestaurantLike } = require('../models'); 
+const { User, Restaurant, RestaurantLike } = require('../models'); 
 
-const index = (req, res) => {
+const index = async(req, res) => {
 	const page = {
 		title: "likes"
 	};
-  
-	// const likes = RestaurantLike.find({ user: session.authUser }).populate("restaurant").lean();
 
+	session = req.session
+  
+	const likes = await RestaurantLike.find({ username: session.authUser.username }).populate("restaurant").lean();
+	console.log(likes);
 	res.status(200).render('profile/likes', { 
 		page: page,
+		likes: likes,
 	});
 };
 
-const saveLike = (req, res) => {
-	const promises = [
-		Restaurant.findOne({slug: req.params.slug}).lean(), 
-		User.find({}).lean(), 
-	];
+const saveLike = async(req, res) => {
 
-	Promise.all(promises).then((data) => {
+	session = req.session;
+	if(session.authUser){
 
-		const [restaurant, user] = data;
-		console.log(restaurant);
-		console.log(user);
-		// const RestaurantLike = await RestaurantLike.create({
-		// 	user: user,
-		// 	restaurant: restaurant,
-		// })
-	})
+		const restaurant = await Restaurant.findOne({slug: req.body.restaurant_id}).lean();
+		const user = await User.findOne({ username: session.authUser.username }).lean();
+		const restaurantLike = await RestaurantLike.create({
+			user: user,
+			restaurant: restaurant,
+		})
+		res.send();
+	} else {
+		res.redirect('/login');
+	}
 }
 
 
