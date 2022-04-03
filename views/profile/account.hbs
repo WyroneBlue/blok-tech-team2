@@ -25,32 +25,26 @@
 </section>
 
 <section class="blokkenaccount">
-  <article>
-    <img>
-    <h2>Restaurantnaam</h2>
-  </article>
+    <ul>
+        {{#each card}}
+        <li>
+            <article>
+                <img src="" alt=""> {{!afbeelding van restaurant}}
+                <h3>{{this.restaurant}}</h3>
+                <section>
+                    <h4>Reccomendations</h4>
 
-  <article>
-    <img>
-    <h2>Restaurantnaam</h2>
-  </article>
+                    <img src="" alt=""> {{!afbeelding van gerecht}}
+                    <p>{{this.reccomendation1}}</p>
+                    <img src="" alt=""> {{!afbeelding van gerecht}}
+                    <p>{{this.reccomendation2}}</p>
+                </section>
+            </article>
+        </li>
+        {{/each}}
+    </ul>
 
-  <article>
-    <img>
-    <h2>Restaurantnaam</h2>
-  </article>
-
-  <article>
-    <img>
-    <h2>Restaurantnaam</h2>
-  </article>
-
-  <article>
-    <img>
-    <h2>Restaurantnaam</h2>
-  </article>
-
-
+    <a href="account/favorite">+</a> {{!moet nog stylen}}
 </section>
 
 <section id="hover">
