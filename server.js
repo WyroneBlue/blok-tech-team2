@@ -45,39 +45,19 @@ app.set('view engine', 'hbs');
 app.set("views", "./views");
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-const { getRooms } = require('./controllers/messages')
-// Websockets
-const socketSession = async(req, res, next) => {
-	await io.on('connection', async socket => {
-
-		if(req.session.authUser){
-			const rooms = await getRooms(req);
-			console.log(rooms);
-			socket.join(rooms);
-		}
-
-		socket.on('join-chat', (name) => {
-			socket.join(name);
-		})
-		
-		socket.on('new-msg-sent', chat => {
-			socket.to(chat.name).emit('new-msg', chat.msg);
-		})
+io.on('connection', socket => {
+	socket.on('join-chat', (name) => {
+		socket.join(name);
 	})
-	next()
-};
+
+	socket.on('new-msg-sent', chat => {
+		socket.to(chat.name).emit('new-msg', chat.msg);
+	})
+})
 
 // Use Routes
-app.use('/', urlencodedParser, socketSession, routes);
-
+app.use('/', urlencodedParser, routes);
 
 app.listen(PORT, () => {
   	console.log(`Example app listening on port ${PORT}`);
 });
-
-io.on('connection', socket => {
-	// console.log(socket.id);
-	socket.on('new-msg-sent', msg => {
-		socket.broadcast.emit('new-msg', msg);
-	})
-})
