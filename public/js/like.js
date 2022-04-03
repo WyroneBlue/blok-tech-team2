@@ -7,17 +7,21 @@ async function saveLike (e) {
 	const form = e.parentNode;
 	const formData = new FormData(form);
     const restaurant_id = formData.get("restaurant_id").trim();
-	const card = form.parentNode.parentNode
+	const card = form.parentNode.parentNode.parentNode;
 	const route = '/likes/save';
 	try {
 		
 		const response = await axios.post(route, {
 			restaurant_id: restaurant_id,
 		});
+		console.log(response);
 
 		if(response.status === 200){
 			cardCounter--;
-			card.remove();
+			card.classList.add('swipe-right');
+			card.addEventListener('animationend', (e) => {
+				card.remove();
+			});
 			if(cardCounter === 0){
 				console.log('no more');
 				noMoreCardsSection.classList.add('show')
@@ -25,7 +29,9 @@ async function saveLike (e) {
 		}
 		return response;
 	} catch (errors) {
-		console.error(errors);
+		window.location = '/login';
+	}
+}
 	}
 }
 			
