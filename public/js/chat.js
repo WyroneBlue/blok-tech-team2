@@ -1,4 +1,4 @@
-const socket = io('http://localhost:8080');
+const socket = io();
 
 const chatContainer = document.querySelector('#chat-container ul');
 const messageForm = document.querySelector('#message-container form');
