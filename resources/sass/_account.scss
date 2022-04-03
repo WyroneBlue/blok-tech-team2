@@ -14,7 +14,7 @@
         }
         a{
             text-decoration: none;
-            color: black;
+            color: $black-color;
         }
         p{
             margin-left: 1.5em;
@@ -55,7 +55,7 @@
         }
     }
     p{
-        color: grey;
+        color: $alt-color;
     }
 }
 
@@ -121,7 +121,7 @@
         width:calc(100% - 20%);
          > label{
             font-size:1.5em;
-            color:#363636;
+            color:$alt-color;
             margin-bottom:.5em;
             font-weight:600;
             text-align: left;
@@ -129,19 +129,19 @@
         }
         input{
             font-size:1.5em;
-            color:#d6dce7;
+            color:$black-color;
             margin-bottom:.5em;
-            background-color:#ebf2ff;
+            background-color:$input-bg-color;
             border-radius: 0.5em;            
-            border:0.2em solid #d6dce7;
+            border:0.2em solid $input-border-color;
             padding:.9em;
             font-family: $main-font;
             width: 24em;
             max-width: 100%;
         }
         #buttonchange{
-            background-color:black;
-            color:white;
+            background-color:$black-color;
+            color:$white-color;
             margin-bottom: -2em;
             border:none;
             padding:.6em;
@@ -151,7 +151,7 @@
             max-width: 100%;
             font-size:1.8em;
             border-radius: 0.5em;
-            font-family:"poppins",sans-serif;
+            font-family: $main-font;
         }
         #buttondel{
             background-color:$primary-color;
@@ -164,10 +164,10 @@
             font-size:1.8em;
             margin-bottom: -2em;
             border-radius: 0.5em;
-            font-family:"poppins",sans-serif;
+            font-family:$main-font;
         }    
         #buttonlogout{
-            background-color:#d6dce7;
+            background-color:$input-border-color;
             color: $alt-color;
             border:none;
             padding:.6em;
@@ -177,7 +177,7 @@
             max-width: 100%;
             font-size:1.8em;
             border-radius: 0.5em;            
-            font-family:"poppins",sans-serif;
+            font-family:$main-font;
             margin-bottom: 3em;
         }    
     }
@@ -187,7 +187,7 @@
     list-style-type: none;
     margin: auto;
     padding: 1em calc((100% - 22em) / 2);
-    font-family: "poppins", sans-serif;
+    font-family: $main-font;
     margin-bottom: 2em;
   
   li {
@@ -198,9 +198,9 @@
     position: relative;
     text-align: center;
     border-radius: .5em;
-    color: #8496cb;
+    color: $input-border-color;
     font-weight: 500;
-    background-color: #c5d3f7;
+    background-color: $grey-color;
   }
   
   label,
@@ -223,8 +223,8 @@
   input[type="checkbox"]:checked+label,
   .Checkedcheckbox+label 
     {
-    background: #2C3338;
-    color: white;
+    background: $alt-color;
+    color: $white-color;
     transition: .2s ease;
   
   }
@@ -237,9 +237,37 @@
   }
   
     label:hover {
-    background: #abb8d9;
-    color: white;
+    background: $input-border-color;
+    color: $white-color;
     transition: .2s ease;
   }
+
+}
+.blokkenaccount{
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    article{
+        background-color: hotpink;
+        width: 40%;
+        aspect-ratio: 1 / 1;
+        margin: 1em;
+        justify-content: flex-end;
+        align-items: center;
+        display: flex;
+        h2{
+          font-size: 1em;
+          position: absolute;
+          background-color: $primary-color;
+          width: 40%;
+          text-align: center;
+          margin-bottom: 1em;
+        }
+        img{
+          width: 100%;
+          height: auto;
+        }
+      }
   }
 

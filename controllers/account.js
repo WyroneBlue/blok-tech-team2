@@ -8,8 +8,6 @@ const account = async(req, res) => {
 	};
 	
 	const user = await User.findOne({ username: session.authUser.username}).lean();
-	
-	// console.log(user);
 	res.status(200).render('profile/account', { 
 		page: page,
 		layout: false,
@@ -19,11 +17,7 @@ const account = async(req, res) => {
 
 const deleteUser = async (req, res) => {
     session = req.session;
-	console.log(req.session.authUser);
-	let user = session.authUser._id;
-	console.log(user);
     await User.findOne({ username: req.session.authUser.username }).remove().exec();
-    // await User.findByIdAndDelete({ user });
     req.session.destroy();
     res.redirect('/');
 };

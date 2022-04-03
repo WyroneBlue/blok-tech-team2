@@ -1,0 +1,25 @@
+{{> head }}
+    {{> header }}
+        {{{body}}}
+<main>
+    <section id="accountpagina">
+        <figure></figure>
+
+    <form action="/update" method="POST">
+        <input type="text" name="username" value="{{username}}">
+        <input type="email" name="email" value="{{email}}">
+
+        <input id="button" type="submit" value="Change">
+    </form>
+
+    <form action="/uitloggen" method="POST">
+            <input id="button" type="submit" value="Log out">
+    </form>
+
+    <form action="/verwijdergebruiker" method="POST">
+            <input id="buttondel" type="submit" value="Delete account">
+    </form>
+
+    </section>
+</main>
+{{>nav}}

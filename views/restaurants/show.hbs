@@ -53,11 +53,18 @@
     <section id="bottom">
         <h2>Wilt hier eten</h2>
         <ul class="snap">
-            {{#each users}}
+            {{#each userLikes}}
                 <li>
-                    <a href="/messages/{{ username }}/new">
-                        <img src="{{ img }}" alt="User Image {{add @index 1 }}">
-                        <p>{{ name }}</p>
+                    <a href="/messages/{{ user.username }}/new">
+                        <img src="{{ user.img }}" alt="User Image {{add @index 1 }}">
+                        <p>{{ user.name }}</p>
+                    </a>
+                </li>
+            {{else}}
+                <li>
+                    <a href="#">
+                        <img src="/public/images/profilepic.png" alt="No User Image">
+                        <p>No users yet...</p>
                     </a>
                 </li>
             {{/each}}

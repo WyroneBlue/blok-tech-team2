@@ -74,4 +74,10 @@ app.use('/', urlencodedParser, socketSession, routes);
 app.listen(PORT, () => {
   	console.log(`Example app listening on port ${PORT}`);
 });
-  
+
+io.on('connection', socket => {
+	// console.log(socket.id);
+	socket.on('new-msg-sent', msg => {
+		socket.broadcast.emit('new-msg', msg);
+	})
+})

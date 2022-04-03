@@ -8,7 +8,6 @@ const RestaurantSchema = new Schema({
 	name: String,
 	slug: String,
 	description: String,
-	image: String,
 	location: { 
 		address: { type: String, default: '' },
 		link: { type: String, default: '' },
