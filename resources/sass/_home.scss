@@ -27,6 +27,12 @@
       left: 50%;
       transform: translate(-50%, -50%);
 
+      &.swipe-left{
+        animation: swipe-left .4s ease-in;
+      }
+      &.swipe-right{
+        animation: swipe-right .4s ease-in;
+      }
 
       .cards {
         position: relative;

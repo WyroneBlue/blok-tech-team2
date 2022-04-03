@@ -3,34 +3,36 @@
     <h1>Discover</h1>
     {{#if restaurants}}
         
-    <ul>
-        {{#each restaurants}}
-        <li>
-            <section class="cards">
-                <h2>{{ name }} </h2>
-                {{#each restaurant.cuisines}}
-                <h3 class="{{ color }}">{{ name }}</h3>
-                {{/each}}
-                <p>{{ location.address }}</p>
-                <img src="{{ images.bg.src }}" alt="{{ images.bg.alt }}">
-            </section>
-            <section class="buttons">
-                <form action="/dislike" method="post">
-                    <input type="hidden" value="{{ slug }}" name="restaurant_id">
-                    <button class="dislike" type="submit">
-                        <img src="/public/images/icons/cross-card.svg" alt="cross icon">
-                    </button>
-                </form>
-                <form action="/likes/save" method="post">
-                    <input type="hidden" value="{{ slug }}" name="restaurant_id">
-                    <button class="like" type="submit">
-                        <img src="/public/images/icons/heart-card.svg" alt="heart icon">
-                    </button>
-                </form>
-            </section>
-        </li>
-        {{/each}}
-    </ul>
+        <ul>
+            {{#each restaurants}}
+            <li>
+                <a href="/restaurants/{{ slug }}">
+                    <section class="cards">
+                        <h2>{{ name }} </h2>
+                        {{#each restaurant.cuisines}}
+                        <h3 class="{{ color }}">{{ name }}</h3>
+                        {{/each}}
+                        <p>{{ location.address }}</p>
+                        <img src="{{ images.bg.src }}" alt="{{ images.bg.alt }}">
+                    </section>
+                    <section class="buttons">
+                        <form action="/dislike" method="post">
+                            <input type="hidden" value="{{ slug }}" name="restaurant_id">
+                            <button class="dislike" type="submit">
+                                <img src="/public/images/icons/cross-card.svg" alt="cross icon">
+                            </button>
+                        </form>
+                        <form action="/likes/save" method="post">
+                            <input type="hidden" value="{{ slug }}" name="restaurant_id">
+                            <button class="like" type="submit">
+                                <img src="/public/images/icons/heart-card.svg" alt="heart icon">
+                            </button>
+                        </form>
+                    </section>
+                </a>
+            </li>
+            {{/each}}
+        </ul>
     {{/if}}
 
     <section id="no-more-cards" class="{{ hasRestaurants }}">
