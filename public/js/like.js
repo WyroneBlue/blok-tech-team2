@@ -15,8 +15,7 @@ async function saveLike (e) {
 		const response = await axios.post(route, {
 			restaurant_id: restaurant_id,
 		});
-		console.log(response);
-
+		
 		if(response.status === 200){
 			cardCounter--;
 			card.classList.add('swipe-right');
