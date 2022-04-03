@@ -3,29 +3,13 @@
 </section>
 
 <section class="blokken">
-  {{!-- Je moet even kijken wat handig is, gwn een vierkante img met daarop de tekst of de article een BG image geven via scss --}}
-  <article>
-    <img src="public/images/tijdelijke-afbeelding.jpg"> 
-    <h2>Restaurantnaam</h2>
-  </article>
+	{{#each likes}}
 
-  <article>
-    <img src="public/images/tijdelijke-afbeelding.jpg"> 
-    <h2>Restaurantnaam</h2>
-  </article>
-
-  <article>
-    <img src="public/images/tijdelijke-afbeelding.jpg"> 
-    <h2>Restaurantnaam</h2>
-  </article>
-
-  <article>
-    <img src="public/images/tijdelijke-afbeelding.jpg"> 
-    <h2>Restaurantnaam</h2>
-  </article>
-
-  <article>
-    <img src="public/images/tijdelijke-afbeelding.jpg"> 
-    <h2>Restaurantnaam</h2>
-  </article>
+		<article>
+			<img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt }}"> 
+			<h2>{{ restaurant.name }}</h2>
+		</article>
+	{{else}}
+		<p>no likes yet</p>
+	{{/each}}
 </section>
