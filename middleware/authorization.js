@@ -22,5 +22,5 @@ const guest = (req, res, next) => {
 
 module.exports = {
     loggedIn: loggedIn,
-    guest: guest
+    guest: guest,
 }

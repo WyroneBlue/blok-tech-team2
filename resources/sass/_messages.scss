@@ -9,10 +9,10 @@
 
         li{
             display: flex;
-            background-color: white;
+            background-color: $white-color;
             gap: 20px;
             border-radius: 10px;
-            box-shadow: 1px 1px 10px #0000002a;
+            box-shadow: 1px 1px 10px $black-color;
             
             
             a{
@@ -38,7 +38,7 @@
 
                     p{
                         font-weight: bold;
-                        color: black;
+                        color: $black-color;
                     }
                     
                     span{
@@ -61,11 +61,13 @@
     padding: 5px 20px;
 
     a{
+        position: fixed;
         display: flex;
         align-items: center;
         gap: 5px;
         text-decoration: none;
-        color: black;
+        color: $black-color;
+        z-index: 100;
     }
 
     img {
@@ -73,13 +75,20 @@
     }
 
     h1{
+        position: fixed;
         margin: 0;
+        padding: 20px 0;
+        z-index: 99;
     }
 }
 
-#message-container{
-    height: 340px;
-    padding: 5px 20px;
+#chat-container{
+    position: fixed;
+    top: 50px;
+    bottom: 140px;
+    left: 0;
+    right: 0;
+    padding: 80px 20px;
 
     ul{
         display: flex;
@@ -106,7 +115,7 @@
 
             &.sender {
                 align-self: flex-end;
-                background-color: lightgreen;
+                background-color: $validate-color;
 
                 &.wait{
                     visibility: hidden;
@@ -119,7 +128,7 @@
             
             &.receiver {
                 align-self: flex-start;
-                background-color: lightblue;
+                background-color: $light-blue;
                 
                 &.new {
                     animation: msg-received .5s forwards;
@@ -129,3 +138,33 @@
     }
 }
 
+
+#message-container{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    align-content: center;
+    padding: 0 20px 110px;
+    background-color: $white-color;
+
+    form{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+        textarea{
+            border-radius: .5em;
+            padding: 1em 1.5em;
+            resize: none;
+        }
+        
+        button{
+            padding: .5em 1em;
+            border:none;
+            border-radius: .5em;
+            background-color: $mainteam-color;
+        }
+    }
+}

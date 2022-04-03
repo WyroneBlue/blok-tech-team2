@@ -7,16 +7,20 @@ const restaurants  = require('./restaurants');
 const messages  = require('./messages');
 const register = require('./register');
 const likes = require('./likes');
+const dislikes = require('./dislikes');
 const error = require('./error');
 const login = require('./login');
+const account = require('./account');
 
 router.use(viewCounter);
 router.use('/', home);
 router.use('/restaurants', restaurants);
 router.use('/messages', loggedIn, messages);
 router.use('/likes', likes);
+router.use('/dislikes', dislikes);
 router.use('/register', register);
 router.use('/login', guest, login);
+router.use('/account', loggedIn, account);
 router.use('*', error);
 
 module.exports = router;
