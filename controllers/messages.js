@@ -1,11 +1,21 @@
 const { User, Chat } = require('../models');
 let session;
 
+const getRooms = async(req) => {
+	const chats = await Chat.find({ $or: [{inviter: req.session.authUser}, {receiver: req.session.authUser}] })
+	const rooms = chats.map(chat => (chat.name))
+	return rooms;
+}
+
 const index = async(req, res) => {
 
 	const page = {
 		title: "All messages"
 	};
+	
+	const users = await User.create({
+		name: ''
+	});
 	
 	session = req.session;
 
@@ -133,4 +143,5 @@ module.exports = {
 	chat: chat,
 	create: create,
 	update: update,
+	getRooms: getRooms,
 };
