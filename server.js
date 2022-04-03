@@ -2,14 +2,10 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const http = require('http').Server(app);
 const PORT = process.env.PORT || 3000;
-const IO_PORT = process.env.IO_PORT || 8080;
 const session = require('express-session')
-const io = require('socket.io')(IO_PORT, {
-	cors: {
-		origin: "*"
-	}
-});
+const io = require('socket.io')(http);
 
 // Database (MongoDB)
 require('dotenv').config();
@@ -58,6 +54,6 @@ io.on('connection', socket => {
 // Use Routes
 app.use('/', urlencodedParser, routes);
 
-app.listen(PORT, () => {
+http.listen(PORT, () => {
   	console.log(`Example app listening on port ${PORT}`);
 });
