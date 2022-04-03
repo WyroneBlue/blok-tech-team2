@@ -4,10 +4,12 @@
 
 <section class="blokken">
 	{{#each likes}}
-
+		
 		<article>
-			<img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt }}"> 
-			<h2>{{ restaurant.name }}</h2>
+			<a href="/restaurants/{{ slug }}">
+				<img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt }}"> 
+				<h2>{{ restaurant.name }}</h2>
+			</a>
 		</article>
 	{{else}}
 		<p>no likes yet</p>
