@@ -45,10 +45,6 @@ app.set('view engine', 'hbs');
 app.set("views", "./views");
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// Use Routes
-app.use('/', urlencodedParser, routes);
-
-// Websockets
 io.on('connection', socket => {
 	socket.on('join-chat', (name) => {
 		socket.join(name);
@@ -59,13 +55,9 @@ io.on('connection', socket => {
 	})
 })
 
+// Use Routes
+app.use('/', urlencodedParser, routes);
+
 app.listen(PORT, () => {
   	console.log(`Example app listening on port ${PORT}`);
 });
-
-io.on('connection', socket => {
-	// console.log(socket.id);
-	socket.on('new-msg-sent', msg => {
-		socket.broadcast.emit('new-msg', msg);
-	})
-})
