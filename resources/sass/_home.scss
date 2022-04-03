@@ -105,4 +105,32 @@
       }
     }
   }
+
+  #no-more-cards {
+    position: fixed;
+    bottom: 50%;
+    left: 20px;
+    right: 20px;
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    
+    a{
+      padding: 5px 10px;
+      color: $black-color;
+      font-weight: bold;
+      background-color: $mainteam-color;
+      width: fit-content;
+      border-radius: 10px;
+      text-decoration: none;
+      
+      &:hover {
+        background-color: $mainteam-color-hover;
+      }
+    }
+
+    &.show{
+      display: flex;
+    }
+  }
 }

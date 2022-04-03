@@ -1,6 +1,8 @@
 {{!-- {{> head }} --}}
 <section class="discover">
     <h1>Discover</h1>
+    {{#if restaurants}}
+        
     <ul>
         {{#each restaurants}}
         <li>
@@ -14,15 +16,13 @@
             </section>
             <section class="buttons">
                 <form action="/dislike" method="post">
-                    <input type="hidden" value="{{ slug }}" name="restaurantID">
-                    <input type="hidden" value="{{ username }}" name="userID">
+                    <input type="hidden" value="{{ slug }}" name="restaurant_id">
                     <button class="dislike" type="submit">
                         <img src="/public/images/icons/cross-card.svg" alt="cross icon">
                     </button>
                 </form>
-                <form action="/like" method="post">
-                    <input type="hidden" value="{{ slug }}" name="restaurantID">
-                    <input type="hidden" value="{{ username }}" name="userID">
+                <form action="/likes/save" method="post">
+                    <input type="hidden" value="{{ slug }}" name="restaurant_id">
                     <button class="like" type="submit">
                         <img src="/public/images/icons/heart-card.svg" alt="heart icon">
                     </button>
@@ -31,4 +31,11 @@
         </li>
         {{/each}}
     </ul>
+    {{/if}}
+
+    <section id="no-more-cards" class="{{ hasRestaurants }}">
+		<span>There are more restaurants to like at this time</span>
+		<a href="/likes">Go to your likes</a>
+	</section>
 </section>
+<script src="/public/js/like.js"></script>
