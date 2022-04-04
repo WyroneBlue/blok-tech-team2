@@ -30,15 +30,19 @@
         {{#each card}}
         <li>
             <a href="/account/editFavorite/{{ _id }}"><article>
-                <img src="" alt=""> {{!afbeelding van restaurant}}
+                <img src="/public/images/tijdelijke-afbeelding.jpg" alt=""> {{!afbeelding van restaurant}}
                 <h2>{{this.restaurant}}</h2>
                 <section>
                     <h3>Reccomendations</h3>
 
-                    <img src="" alt=""> {{!afbeelding van gerecht}}
+                    <span>
+                    <img src="/public/images/tijdelijke-afbeelding.jpg" alt=""> {{!afbeelding van gerecht}}
                     <p>{{this.reccomendation1}}</p>
-                    <img src="" alt=""> {{!afbeelding van gerecht}}
+                    </span>
+                    <span>
+                    <img src="/public/images/tijdelijke-afbeelding.jpg" alt=""> {{!afbeelding van gerecht}}
                     <p>{{this.reccomendation2}}</p>
+                    </span>
                 </section>
             </article></a>
         </li>
@@ -47,7 +51,7 @@
         {{/each}}
     </ul>
 
-    <a href="account/newFavorite">+</a> {{!moet nog stylen}}
+    <a href="account/newFavorite" class="addbtn">+</a> {{!moet nog stylen}}
 </section>
 
 <section id="hover">
