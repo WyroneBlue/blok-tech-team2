@@ -78,15 +78,15 @@ const saveUser = async (req, res) => {
 			session = req.session
 			session.authUser = savedUser
 			let transporter = nodemailer.createTransport({
-				service: "hotmail",
+				service: "gmail",
 				auth: {
-				  user: "matchtaurant@hotmail.com",
+				  user: "matchtaurant@gmail.com",
 				  pass: "Bloktech",
 				},
 			  });
 			
 			  transporter.sendMail({
-				from: '"Matchtaurant" <matchtaurant@hotmail.com>', // this is the sender
+				from: '"Matchtaurant" <matchtaurant@gmail.com>', // this is the sender
 				to: savedUser.email, // this is the receiver
 				subject: "You are now part of Matchtaurant!", // subject of the email
 				text: "Hi " + savedUser.username + ", welcome to the Matchtaurant community!", // text in the email

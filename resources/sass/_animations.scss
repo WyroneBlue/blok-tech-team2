@@ -41,3 +41,44 @@
         transform: rotateY(360deg) scale(1);
     }
 }
+
+// swipe
+@keyframes swipe-left {
+    0%{
+        transform-origin: left bottom;
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    
+    50%{
+        transform: translate(-60%, -50%) rotate(-40deg);
+    }
+    
+    75%{
+        transform: translate(-70%, -50%) rotate(-60deg);
+    }
+    
+    100%{
+        transform-origin: right bottom;
+        transform: translate(-100%, -50%) rotate(-80deg);
+    }
+}
+
+@keyframes swipe-right {
+    0%{
+        transform-origin: right bottom;
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    
+    50%{
+        transform: translate(-40%, -50%) rotate(40deg);
+    }
+    
+    75%{
+        transform: translate(-30%, -50%) rotate(60deg);
+    }
+    
+    100%{
+        transform-origin: right bottom;
+        transform: translate(0%, -50%) rotate(80deg);
+    }
+}

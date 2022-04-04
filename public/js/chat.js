@@ -1,8 +1,10 @@
-const socket = io('http://localhost:8080');
+const socket = io();
 
-const chatContainer = document.querySelector('#message-container ul');
-const chatForm = document.querySelector('#chat-container form');
+const chatContainer = document.querySelector('#chat-container ul');
+const messageForm = document.querySelector('#message-container form');
+const messageFormTextarea = document.querySelector('#message-container form textarea');
 let latestMsg;
+let chatName;
 
 const saveMessageHistory = async(msg, date) => {
     const route = window.location.pathname;
@@ -67,22 +69,37 @@ const addMessage = async (msg, type, save = true) => {
     }
 }
 
-if(chatForm){
-    let chatName = document.getElementById('chatName').value;
+const submitForm = async(e) => {
+    e.preventDefault();
+    const form = new FormData(messageForm);
+    const msg = form.get("message").trim();
+    if(msg.length){
+        await socket.emit('new-msg-sent', { 
+            name: chatName,
+            msg: msg, 
+        });
+        addMessage(msg, 'sender')
+        messageForm.reset();
+    }
+}
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+    const key = window.event.keyCode;
+    if (key === 13) {
+        submitForm(e);
+        return false;
+    }
+}
+
+if(messageFormTextarea){
+    messageFormTextarea.addEventListener('keyup', handleSubmit)
+}
+
+if(messageForm){
+    chatName = document.getElementById('chatName').value;
     socket.emit('join-chat', chatName);
-    chatForm.addEventListener('submit', async e => {
-        e.preventDefault();
-        const form = new FormData(e.target);
-        const msg = form.get("message");
-        if(msg){
-            await socket.emit('new-msg-sent', { 
-                name: chatName,
-                msg: msg, 
-            });
-            addMessage(msg, 'sender')
-            chatForm.reset();
-        }
-    })
+    messageForm.addEventListener('submit', submitForm);
 }
 
 socket.on("user connected", (user) => {
@@ -90,7 +107,9 @@ socket.on("user connected", (user) => {
 });
 
 socket.on('new-msg', message => {
-    addMessage(message, 'receiver', false);
+    if(chatContainer){
+        addMessage(message, 'receiver', false);
+    }
 })
 
 window.addEventListener('DOMContentLoaded', () => {

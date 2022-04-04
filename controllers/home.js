@@ -1,15 +1,35 @@
-const { Restaurant } = require('../models');
+const { Restaurant, RestaurantSwipe, User } = require('../models');
+let session;
 
 const index = async (req, res) => {
-
+	session = req.session;
 	const page = {
 		title: "Home"
 	};
 	
-	const restaurants = await Restaurant.find().lean();
+	let restaurantLikes;
+	let restaurants;
+	let hasRestaurants;
+	if(session.authUser){
+
+		const authUser = await User.find({ username: session.authUser.username })
+		restaurantLikes = await RestaurantSwipe.find({ user: authUser }).populate('restaurant');
+		const authUserLikes = restaurantLikes.map((like) => {
+			return like.restaurant.slug;
+		});
+
+		restaurants = await Restaurant.find({ slug: { "$nin": authUserLikes } }).lean();
+		hasRestaurants = restaurants.length > 0 ? '' : 'show';
+	} else {
+		restaurants = await Restaurant.find().lean();
+		hasRestaurants = '';
+	}
+
 	res.status(200).render('home', { 
 		page: page,
-		restaurants: restaurants
+		restaurants: restaurants,
+		hasRestaurants: hasRestaurants,
+		authUser: session.authUser
 	});
 };
 

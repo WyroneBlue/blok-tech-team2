@@ -1,5 +1,5 @@
 #navbar {
-    background-color: #e6efff;    
+    background-color: $grey-color;    
     position: fixed;
     border-radius: 20em;
     display: flex;
@@ -23,7 +23,7 @@
         padding: 0.8em;
 
         &:hover {
-            background-color: #FFED74;
+            background-color: $primary-color;
             border-radius: 15em;
             border: none;
             transition: .2s ease;
