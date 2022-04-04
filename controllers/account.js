@@ -9,9 +9,7 @@ const account = async(req, res) => {
 	};
 	
 	const user = await User.findOne({ username: session.authUser.username}).lean();
-
-	// const query = {user_id: user.user_id};
-	const card = await Reccomendation.find({}).lean();
+	const card = await Reccomendation.find({ user_id: session.authUser._id }).lean();
 	
 	// console.log(user);
 	res.status(200).render('profile/account', { 
