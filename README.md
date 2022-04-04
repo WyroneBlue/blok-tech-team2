@@ -40,7 +40,10 @@
   
 <section>
   <h2 id="commits">🚨Commits</h2>
-<p>Om goed samen te kunnen werken, moet je ook zelfstandig aan het project kunnen werken. Hiervoor moet je bijvoorbeeld verschillende commits doen, die de andere reviewen. De meest belangrijke commits hebben we in de wiki gezet. Zodat je deze allemaal terug kan lezen.</p>
+  <p>
+    Om goed samen te kunnen werken, moet je ook zelfstandig aan het project kunnen werken. Hiervoor moet je bijvoorbeeld verschillende commits doen, die de andere reviewen. De meest belangrijke commits hebben we in de wiki gezet. Zodat je deze allemaal terug kan lezen.
+  </p>
+  <a style="background-color: #FCEC86; color: black; padding: 5px 10px; border-radius: 5px; font-weight: bold;" style href="https://github.com/WyroneBlue/blok-tech-team2/wiki/Commits">Bekijk onze belangrijkste commits</a>
 </section>
 
 <section>
