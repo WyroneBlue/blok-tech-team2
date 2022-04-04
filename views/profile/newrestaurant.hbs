@@ -1,0 +1,28 @@
+{{> head }}
+    {{> header }}
+        {{{body}}}
+<section id="accountheader">
+    <article>
+        <h1>New Restaurant</h1>
+    </article>
+</section>
+
+<section>
+    <form action="/account/newFavorite" method="post" id="favoriteform"> {{!moet nog stylen}}
+
+                <label for="restaurant">Restaurant naam</label>
+                <input type="text" name="restaurant" required>
+
+                <h2>My Reccomendations</h2>
+                <label for="item">...</label>
+                <input type="text" name="reccomend1" required>
+
+                <label for="item">...</label>
+                <input type="text" name="reccomend2" required>
+            
+            <input type="submit" value="Save changes">
+        </form>
+
+</section>
+{{> nav }}
+<script src="/public/js/account.js"></script>
