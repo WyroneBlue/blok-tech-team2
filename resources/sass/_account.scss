@@ -88,7 +88,6 @@
     align-items: center;
     text-align: left;
     transition: .25s ease;
-
     #titel{
         margin-left: 1em;
         font-size: 2em;
@@ -248,6 +247,7 @@
     justify-content: center;
     flex-direction: row;
     flex-wrap: wrap;
+    background-color: red;
     article{
         background-color: hotpink;
         width: 40%;
@@ -271,3 +271,6 @@
       }
   }
 
+#accountbody{
+    overflow-x: hidden;
+}

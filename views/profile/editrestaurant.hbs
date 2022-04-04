@@ -1,0 +1,32 @@
+{{> head }}
+    {{> header }}
+        {{{body}}}
+<section id="accountheader">
+    <article>
+        <h1>Edit Restaurant</h1>
+    </article>
+</section>
+
+<section>
+    <form action="/account/editFavorite/{{ card._id }}" method="post" id="favoriteform"> {{!moet nog stylen}}
+
+                <label for="restaurant">Restaurant naam</label>
+                <input type="text" name="restaurant" required value="{{card.restaurant}}">
+
+                <h2>My Reccomendations</h2>
+                <label for="item">...</label>
+                <input type="text" name="reccomend1" required value="{{card.reccomendation1}}">
+
+                <label for="item">...</label>
+                <input type="text" name="reccomend2" required value="{{card.reccomendation2}}">
+            
+            <input type="submit" value="Save changes">
+        </form>
+</section>
+<section>
+        <form action="/account/deleteFavorite/{{ card._id }}" method="post">
+            <input type="submit" id="buttondel" value="Delete this card">
+        </form>
+</section>
+{{> nav }}
+<script src="/public/js/account.js"></script>
