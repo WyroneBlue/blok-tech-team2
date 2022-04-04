@@ -13,7 +13,8 @@
   flex-direction: row;
   flex-wrap: wrap;
   margin-top: 7em;
-  gap: 1em;
+  padding: 1em;
+  gap: 10px;
 
   article{
     position: relative;
@@ -21,9 +22,8 @@
     align-items: center;
     justify-content: flex-end;
     background-color: hotpink;
-    width: 40%;
+    width: calc(50% - 5px);
     aspect-ratio: 1 / 1;
-    margin: 1em;
 
     a{
       width: 100%;
