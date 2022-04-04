@@ -1,9 +1,10 @@
-const socket = io('http://localhost:8080');
+const socket = io();
 
 const chatContainer = document.querySelector('#chat-container ul');
 const messageForm = document.querySelector('#message-container form');
 const messageFormTextarea = document.querySelector('#message-container form textarea');
 let latestMsg;
+let chatName;
 
 const saveMessageHistory = async(msg, date) => {
     const route = window.location.pathname;
@@ -96,7 +97,7 @@ if(messageFormTextarea){
 }
 
 if(messageForm){
-    let chatName = document.getElementById('chatName').value;
+    chatName = document.getElementById('chatName').value;
     socket.emit('join-chat', chatName);
     messageForm.addEventListener('submit', submitForm);
 }

@@ -2,14 +2,10 @@
 const express = require('express');
 const path = require('path');
 const app = express();
+const http = require('http').Server(app);
 const PORT = process.env.PORT || 3000;
-const IO_PORT = process.env.IO_PORT || 8080;
 const session = require('express-session')
-const io = require('socket.io')(IO_PORT, {
-	cors: {
-		origin: "*"
-	}
-});
+const io = require('socket.io')(http);
 
 // Database (MongoDB)
 require('dotenv').config();
@@ -45,10 +41,6 @@ app.set('view engine', 'hbs');
 app.set("views", "./views");
 app.use('/public', express.static(path.join(__dirname, 'public')));
 
-// Use Routes
-app.use('/', urlencodedParser, routes);
-
-// Websockets
 io.on('connection', socket => {
 	socket.on('join-chat', (name) => {
 		socket.join(name);
@@ -59,13 +51,9 @@ io.on('connection', socket => {
 	})
 })
 
-app.listen(PORT, () => {
+// Use Routes
+app.use('/', urlencodedParser, routes);
+
+http.listen(PORT, () => {
   	console.log(`Example app listening on port ${PORT}`);
 });
-
-io.on('connection', socket => {
-	// console.log(socket.id);
-	socket.on('new-msg-sent', msg => {
-		socket.broadcast.emit('new-msg', msg);
-	})
-})

@@ -6,7 +6,7 @@ const index = async(req, res) => {
 	const page = {
 		title: "All messages"
 	};
-	
+		
 	session = req.session;
 
 	const chats = await Chat.find({ $or: [{inviter: session.authUser}, {receiver: session.authUser}] })
