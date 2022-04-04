@@ -9,6 +9,8 @@ const account = async(req, res) => {
 	};
 	
 	const user = await User.findOne({ username: session.authUser.username}).lean();
+
+	// const query = {user_id: user.user_id};
 	const card = await Reccomendation.find({}).lean();
 	
 	// console.log(user);
@@ -20,7 +22,7 @@ const account = async(req, res) => {
 	});
 };
 
-const newFavorite = async(req, res) => {
+const addFavorite = async(req, res) => {
 	session = req.session;
 	const page = {
 		title: "New Favorite"
@@ -36,7 +38,7 @@ const newFavorite = async(req, res) => {
 	});
 };
 
-const addFavorite = (req, res) => {
+const postaddFavorite = (req, res) => {
 
 	session = req.session;
 	
@@ -60,6 +62,48 @@ const addFavorite = (req, res) => {
 			});
 		});
 };
+
+const editFavorite = async(req, res) => {
+	session = req.session;
+	const page = {
+		title: "Edit Favorite"
+	};
+	
+	const user = await User.findOne({ username: session.authUser.username}).lean();
+	const card = await Reccomendation.findById(req.params.id).lean();
+	
+	// console.log(user);
+	res.status(200).render('profile/editrestaurant', { 
+		page: page,
+		layout: false,
+		user: user,
+		card: card,
+	});
+};
+
+const posteditFavorite = async(req, res) => {
+
+	session = req.session;
+	const input = req.body;
+
+	await Reccomendation.findByIdAndUpdate(req.params.id, {
+		restaurant: input.restaurant,
+		reccomendation1: input.reccomend1,
+		reccomendation2: input.reccomend2,
+	});
+		
+	res.redirect('/account');
+};
+
+const deleteFavorite = async(req, res) => {
+	session = req.session;
+
+	await Reccomendation.findOne({ _id: req.params.id }).remove().exec();
+	res.redirect('/account');
+};
+
+
+
 
 const deleteUser = async (req, res) => {
     session = req.session;
@@ -90,8 +134,11 @@ const logOut = async (req, res) => {
 
 module.exports = {
 	account: account,
-	newFavorite: newFavorite,
 	addFavorite: addFavorite,
+	postaddFavorite: postaddFavorite,
+	editFavorite: editFavorite,
+	posteditFavorite: posteditFavorite,
+	deleteFavorite: deleteFavorite,
 	deleteUser: deleteUser,
 	updateUser: updateUser,
 	logOut: logOut
