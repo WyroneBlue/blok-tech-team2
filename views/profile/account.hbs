@@ -29,22 +29,23 @@
     <ul>
         {{#each card}}
         <li>
-            <a href="/account/editFavorite/{{ _id }}"><article>
-                <img src="/public/images/tijdelijke-afbeelding.jpg" alt=""> {{!afbeelding van restaurant}}
-                <h2>{{this.restaurant}}</h2>
-                <section>
-                    <h3>Reccomendations</h3>
+                <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt }}">
+                
+                <h2>{{ restaurant.name }}</h2>
+                <section class="reccCard">
+                    <a href="/account/editFavorite/{{ _id }}"><h3>Reccomendations</h3></a>
+                    
+                    <span>
+                        <img src="{{ reccomendation1.img }}" alt=""> {{!afbeelding van gerecht}}
+                     <p>{{ reccomendation1.item }}</p>
+                   
+                    </span>
+                    <span>
+                        <img src="{{ reccomendation2.img }}" alt=""> {{!afbeelding van gerecht}}
+                        <p>{{ reccomendation2.item }}</p>
+                    </span>
 
-                    <span>
-                    <img src="/public/images/tijdelijke-afbeelding.jpg" alt=""> {{!afbeelding van gerecht}}
-                    <p>{{this.reccomendation1}}</p>
-                    </span>
-                    <span>
-                    <img src="/public/images/tijdelijke-afbeelding.jpg" alt=""> {{!afbeelding van gerecht}}
-                    <p>{{this.reccomendation2}}</p>
-                    </span>
                 </section>
-            </article></a>
         </li>
         {{ else }}
         <p>Je hebt momenteel geen favorite restaurants... Klik op 'plus' om er een toe te voegen</p>

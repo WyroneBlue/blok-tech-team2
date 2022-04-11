@@ -1,5 +1,5 @@
-const { User } = require('../models');
-const Reccomendation = require('../models/Reccomendation');
+const { User, RestaurantSwipe, Reccomendation, Menu } = require('../models');
+
 let session;
 
 const account = async(req, res) => {
@@ -9,7 +9,7 @@ const account = async(req, res) => {
 	};
 	
 	const user = await User.findOne({ _id: session.authUser._id}).lean();
-	const card = await Reccomendation.find({ user_id: session.authUser._id }).lean();
+	const card = await Reccomendation.find({ user_id: session.authUser._id }).populate("restaurant reccomendation1 reccomendation2").lean();
 	
 	// console.log(user);
 	res.status(200).render('profile/account', { 
@@ -26,13 +26,17 @@ const addFavorite = async(req, res) => {
 		title: "New Favorite"
 	};
 	
+	const menu = await Menu.find({}).populate("restaurant").lean();
 	const user = await User.findOne({ username: session.authUser.username}).lean();
+	const likes = await RestaurantSwipe.find({ user: session.authUser, swipe: 'like' }).populate("restaurant").lean();
 	
 	// console.log(user);
 	res.status(200).render('profile/newrestaurant', { 
 		page: page,
 		layout: false,
 		user: user,
+		likes: likes,
+		menu: menu,
 	});
 };
 
@@ -68,7 +72,8 @@ const editFavorite = async(req, res) => {
 	};
 	
 	const user = await User.findOne({ username: session.authUser.username}).lean();
-	const card = await Reccomendation.findById(req.params.id).lean();
+	const card = await Reccomendation.findById(req.params.id).populate("restaurant").lean();
+	const menu = await Menu.find({ restaurant: card.restaurant }).populate("restaurant").lean();
 	
 	// console.log(user);
 	res.status(200).render('profile/editrestaurant', { 
@@ -76,6 +81,8 @@ const editFavorite = async(req, res) => {
 		layout: false,
 		user: user,
 		card: card,
+		menu: menu,
+		cardRes: card.restaurant,
 	});
 };
 

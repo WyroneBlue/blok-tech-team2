@@ -1,32 +1,43 @@
 {{> head }}
     {{> header }}
         {{{body}}}
+<body id="accountbody">
 <section id="accountheader">
-    <article>
-        <h1>Edit Restaurant</h1>
-    </article>
+    <h1>New Restaurant</h1>
 </section>
 
-<section>
-    <form action="/account/editFavorite/{{ card._id }}" method="post" class="favoriteform"> {{!moet nog stylen}}
+<form action="/account/newFavorite" method="post" class="favoriteform">
+    
+    <h2>Selected restaurant:</h2>
+    <section class="favformSelected">
+        <img src="{{ cardRes.images.bg.src }}" alt="{{ cardRes.images.bg.alt }}">
+        <h2 id="{{ cardRes.slug }}">{{ cardRes.name }}</h2>
+    </section>
 
-                <label for="restaurant">Restaurant naam</label>
-                <input type="text" name="restaurant" required value="{{card.restaurant}}">
+    <h2>My Reccomendations</h2>
+    <section class="favformReccomend">
+        <select name="reccomend1" id="reccomend1">
+            <option value="">-- + --</option>
+            {{#each menu}}
+            <option class="{{ restaurant.slug }} option" value="{{ this._id }}">{{ this.item }}</option>
+            {{/each}}
+        </select>
+        <select name="reccomend2" id="reccomend2">
+            <option value="">-- + --</option>
+            {{#each menu}}
+            <option class="{{ restaurant.slug }} option" value="{{ this._id }}">{{ this.item }}</option>
+            {{/each}}
+        </select>
+    </section>
 
-                <h2>My Reccomendations</h2>
-                <label for="item">...</label>
-                <input type="text" name="reccomend1" required value="{{card.reccomendation1}}">
-
-                <label for="item">...</label>
-                <input type="text" name="reccomend2" required value="{{card.reccomendation2}}">
-            
-            <input type="submit" value="Save changes">
-        </form>
-</section>
-<section>
+    <section class="formbtn">
+        <input type="submit" class="submitbtn" value="Save changes">
+    </section>
+</form>
+<section class="formdelete">
         <form action="/account/deleteFavorite/{{ card._id }}" method="post">
-            <input type="submit" id="buttondel" value="Delete this card">
+            <input type="submit" class="deletebtn" value="Delete this card">
         </form>
 </section>
-{{> nav }}
-<script src="/public/js/account.js"></script>
+</body>
+{{!-- <script src="/public/js/edit.js"></script> --}}

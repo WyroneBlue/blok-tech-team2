@@ -6,7 +6,7 @@ const index = async (req, res) => {
 	const page = {
 		title: "Home"
 	};
-	
+
 	let restaurantLikes;
 	let restaurants;
 	let hasRestaurants;

@@ -247,61 +247,188 @@
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
-    article{
-        height: 18em;
-        margin: 1em;
+
+    p{
+        text-align: center;
+        padding: 4em;
+    }
+    li{
+        height: 14em;
+        margin: 1em 1em 2em 1em;
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
+    
         background-color: $grey-color;
         border-radius: 1em;
+        img{
+            width: 6em;
+            height: 12em;
+            margin: 1em 0em 0em 1em;
+            border-radius: 1em;
+            object-fit: cover;
+          }
         h2{
+          height: 2em;
           font-size: 1.5em;
           width: 59%;
           text-align: left;
-          margin: 1em 0em 1em 0em;
+          margin: 0.5em 0em 1em 0em;
           text-decoration: none;
         }
-        img{
-          width: 30%;
-          height: auto;
-          margin: 1em 0em 0em 1em;
-        }
-        section{
-            width: 1000%;
+        .reccCard{
+            width: 60%;
+            height: 8em;
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
             justify-content: space-around;
+            background-color: $input-border-color;
+            border-radius: 1em;
             h3{
                 width: 100%;
-                margin-left: 1em;
                 text-decoration: none;
             }
             span{
-                width: 30%;
-            }
-            img{
-                margin: 0;
-                width: 100%;
-                filter: blur(5px);
-            }
-            p{
-                position: relative;
-                text-align: center;
-                bottom: 3.5em;
-                text-decoration: none;
+                width: 45%;
+                padding-top: 0.2em;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                flex-direction: column;
+                img{
+                    width: 5em;
+                    height: 5em;
+                    margin: 0;
+                }
+                p{
+                    text-align: center;
+                    position: relative;
+                    bottom: 3.5em;
+                }
             }
         }
-      }
-  }
-  .addbtn{
-      text-align: center;
-      font-size: 5em;
-      color: gray;
-      font-weight: bold;
-      text-decoration: none;
-  }
+    }
+}
+.addbtn{
+    text-align: center;
+    font-size: 5em;
+    color: gray;
+    font-weight: bold;
+    text-decoration: none;
+}
+.favoriteform{
+    display: flex;
+    flex-direction: column;
+    h2{
+        margin-top: 3em;
+        margin-left: 0.5em;
+    }
+    .favformRestaurant{
+        padding: 1em;
+
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+        span{
+            margin-right: 2em;
+        }
+        img{
+            width: 10em;
+            height: 12em;
+            object-fit: cover;
+            border-radius: 1em;
+            filter: opacity(40%);
+        }
+        input{
+            display: none;
+            &:checked+label{
+                img{
+                    filter: opacity(100%);
+                }
+            }
+        }
+        p{
+            text-align: center;
+        }
+    }
+    .favformSelected{
+        padding: 1em;
+        display: flex;
+        flex-direction: row;
+        img{
+            width: 10em;
+            margin: 0.5em;
+            border-radius: 1em;
+        }
+    }
+    .favformReccomend{
+        padding: 1em;
+        display: flex;
+        justify-content: space-around;
+
+        select{
+            width: 40%;
+            height: 5em;
+            padding-left: 1em;
+
+            display: block;
+            border: $border-light;
+            border-radius: $radius-standard;
+            text-align: center;
+        }
+        .hidden{
+            display: none;
+        }
+    }
+    .formbtn{
+        width: 100%;
+        padding: 1em;
+
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row-reverse;
+
+        position: absolute;
+        bottom: 0;
+        a{
+            padding: 0.6em;
+            text-decoration: none;
+            color: $font-color;
+        }
+        .submitbtn{
+            background-color:$black-color;
+            color:$white-color;
+            border:none;
+            padding:.6em;
+            // width:calc(100% - 20%);
+    
+            width: 10em;
+            font-size:1em;
+            border-radius: 0.5em;
+            font-family: $main-font;
+        }
+    }
+}
+.formdelete{
+    width: 30%;
+    padding: 1em;
+
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    .deletebtn{
+        background-color: white;
+        color: $font-color;
+        border: none;
+        font-size: medium;
+        width: 100%;
+        padding: 0.4em;
+        text-decoration: underline;
+    }
+}
 
 #accountbody{
     overflow-x: hidden;

@@ -7,6 +7,7 @@
 - Danique
 - Claudio
 - Jesse
+- Jesse
 - Rick
 
 <section>
@@ -79,5 +80,3 @@ npm run start
   <h2 id="license">💶license</h2>
   <a href="https://github.com/WyroneBlue/blok-tech-team2/blob/feat/readme/LICENSE">MIT License</a>
 </section>
-  
-  

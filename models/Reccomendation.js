@@ -5,10 +5,10 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 const ReccomendSchema = new Schema({
-	user_id: String,
-	restaurant: String,
-	reccomendation1: String,
-	reccomendation2: String,
+	user: { type: Schema.Types.ObjectId, ref: 'User' },
+	restaurant: { type: Schema.Types.ObjectId, ref: 'Restaurant' },
+	reccomendation1: { type: Schema.Types.ObjectId, ref: 'Menu' },
+	reccomendation2: { type: Schema.Types.ObjectId, ref: 'Menu' },
 });
 
 const Reccomendation = mongoose.model('Reccomendations', ReccomendSchema);
