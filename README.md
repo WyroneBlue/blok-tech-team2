@@ -6,9 +6,7 @@
 - Ymaro
 - Danique
 - Claudio
-<<<<<<< HEAD
 - Jesse
-=======
 - Jesse
 - Rick
 
@@ -82,6 +80,3 @@ npm run start
   <h2 id="license">💶license</h2>
   <a href="https://github.com/WyroneBlue/blok-tech-team2/blob/feat/readme/LICENSE">MIT License</a>
 </section>
-  
-  
->>>>>>> c00247197dbab882ef05fcf41871e5e221923de7

@@ -6,7 +6,6 @@ const Chat = require('./Chat');
 const Reccomendation = require('./Reccomendation');
 const Menu = require('./Menu');
 
-
 module.exports = {
 	User: User,
 	Restaurant: Restaurant,

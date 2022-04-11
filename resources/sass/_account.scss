@@ -247,6 +247,7 @@
     justify-content: center;
     flex-direction: column;
     flex-wrap: wrap;
+
     p{
         text-align: center;
         padding: 4em;
@@ -278,12 +279,10 @@
         .reccCard{
             width: 60%;
             height: 8em;
-
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
             justify-content: space-around;
-
             background-color: $input-border-color;
             border-radius: 1em;
             h3{
