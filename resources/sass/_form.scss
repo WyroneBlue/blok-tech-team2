@@ -1,0 +1,192 @@
+form{
+    display: flex;
+    flex-direction: column;
+    
+    label{
+        display: flex;
+        flex-direction: column;
+
+        &.toggle{
+            position: relative;
+            display: inline-block;
+            width: 60px;
+            height: 34px;
+
+            input{
+                opacity: 0;
+                width: 0;
+                height: 0;
+
+                &:checked + .slider {
+                    background-color: $mainteam-color;
+                    border-radius: $radius-pill;
+                }
+
+                &:focus + .slider {
+                    box-shadow: 0 0 1px $mainteam-color;
+                }
+
+                &:checked + .slider:before {
+                    -webkit-transform: translateX(22px);
+                    -ms-transform: translateX(22px);
+                    transform: translateX(22px);
+                }
+            }
+
+            span{
+                position: absolute;
+                cursor: pointer;
+                top: 30px;
+                left: 0;
+                right: 0;
+                height: 34px;
+                background-color: $grey-color;
+                -webkit-transition: .4s;
+                transition: .4s;
+                border-radius: $radius-pill;
+                border: 2px solid $black-color;
+                
+                &:before{
+                    position: absolute;
+                    content: "";
+                    height: 26px;
+                    width: 26px;
+                    left: 4px;
+                    bottom: 2px;
+                    background-color: $white-color;
+                    -webkit-transition: .4s;
+                    transition: .4s;
+                    border: 2px solid $black-color;
+                    border-radius: $radius-pill;
+                }
+            }
+        }
+    }
+}
+
+#loginpagina{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    margin-top:7em;
+    article{
+        h1{
+            font-size:3em
+        }
+        p{
+            font-weight:200;
+            font-size:1.3em;
+            width:15em;
+        }
+    }
+    form{
+        display:flex;
+        flex-direction:column;
+        text-align:left;
+        margin-top:6em;
+        width:calc(100% - 20%);
+        label{
+            font-size:1.5em;
+            color:$alt-color;
+            margin-bottom:.5em;
+            font-weight:600
+        }
+        input{
+            font-size:1.5em;
+            color:$black-color-light;
+            margin-bottom:.5em;
+            background-color:$input-bg-color;
+            border-radius:1em;
+            border:0.2em solid $input-border-color;
+            padding:.9em;
+            font-family: $main-font;
+        }
+        #button{
+            border:none;
+            background-color:$black-color;
+            padding:1em;
+            margin-top:1.4em;
+            color: $white-color;
+        }
+        p:nth-of-type(1){
+            text-align:right;
+            color: $input-border-color;
+        }
+        a{
+            text-decoration:none;
+        }
+    }
+    }
+
+    #loginpagina #homescreen fieldset:last-of-type div {
+        display: flex;
+        padding: 1em calc((100% - 15em) / 2);
+    }
+    
+    .fouteInput {
+        display: block;
+    
+        color: red;
+        font-size: 1em;
+        font-family: $main-font;
+    }
+    
+    
+    form label#error.errorLabel{
+        display: block;
+        color: red;
+        font-weight: 600;
+        font-size: 1.5em;
+        padding: 1em;
+        font-family: $main-font;
+        text-align: center;
+    }
+
+#welkompagina{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    text-align:center;
+    margin-top:7em;
+    article:first-of-type{
+        margin-top:1em;
+        h1{
+            font-size:2.3em
+        }
+        p{
+            font-weight:200;
+            font-size:1.3em;
+            width:calc(100% - 10%);
+            margin-left:1.3em;  
+        }
+    }
+    #button{
+        border:none;
+        padding:.6em;
+        width:calc(100% - 20%);
+        font-size:1.8em;
+        border-radius:.6em;
+        margin-top:.5em;
+        font-family:$main-font;
+    }
+    #button:nth-of-type(1){
+        background-color:$black-color;
+        color:$white-color;
+    }
+    #button:nth-of-type(2){
+        background-color:$alt-color;
+        margin-bottom:.4em;
+        color:$white-color;
+    }    
+    #dotsgrey{
+        position:absolute;
+        top:2em;
+        right:2em;
+        height:6em;
+    }  
+    a{
+        text-decoration: none;
+        color: $black-color;
+    }
+}

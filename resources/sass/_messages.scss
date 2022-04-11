@@ -1,0 +1,170 @@
+#my-chats {
+    padding: 20px;
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+        list-style: none;
+
+        li{
+            display: flex;
+            background-color: $white-color;
+            gap: 20px;
+            border-radius: 10px;
+            box-shadow: 1px 1px 10px $black-color;
+            
+            
+            a{
+                display: flex;
+                align-items: center;
+                gap: 20px;
+                width: 100%;
+                height: 100%;
+                padding: 20px;
+                text-decoration: none;
+
+                img{
+                    width: 30%;
+                    height: 100%;
+                    border-radius: 50%;
+                }
+                
+                section{
+                    display: flex;
+                    flex-direction: column;
+                    justify-content:center;
+                    padding: 10px;
+
+                    p{
+                        font-weight: bold;
+                        color: $black-color;
+                    }
+                    
+                    span{
+                        display: -webkit-box;
+                        -webkit-line-clamp: 1;
+                        -webkit-box-orient: vertical;  
+                        overflow: hidden;
+                        text-decoration: underline;
+                    }
+                }
+            }
+        }
+    }
+}
+
+#chat-info {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    padding: 5px 20px;
+
+    a{
+        position: fixed;
+        display: flex;
+        align-items: center;
+        gap: 5px;
+        text-decoration: none;
+        color: $black-color;
+        z-index: 100;
+    }
+
+    img {
+        filter: brightness(0) saturate(100%) invert(0%) sepia(96%) saturate(0%) hue-rotate(91deg) brightness(95%) contrast(105%);
+    }
+
+    h1{
+        position: fixed;
+        margin: 0;
+        padding: 20px 0;
+        z-index: 99;
+    }
+}
+
+#chat-container{
+    position: fixed;
+    top: 50px;
+    bottom: 140px;
+    left: 0;
+    right: 0;
+    padding: 80px 20px;
+
+    ul{
+        display: flex;
+        flex-direction: column;
+        list-style: none;
+        gap: 5px;
+        height: 100%;
+        overflow-y: auto;
+        overflow-x: hidden;
+
+        li {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            min-width: 30%;
+            max-width: 75%;
+            padding: 5px 10px;
+            border-radius: 10px;
+            
+            span {
+                align-self: end;
+                font-size: 12px;
+            }
+
+            &.sender {
+                align-self: flex-end;
+                background-color: $validate-color;
+
+                &.wait{
+                    visibility: hidden;
+                }
+                
+                &.new {
+                    animation: msg-sent .5s forwards;
+                }
+            }
+            
+            &.receiver {
+                align-self: flex-start;
+                background-color: $light-blue;
+                
+                &.new {
+                    animation: msg-received .5s forwards;
+                }
+            }
+        }
+    }
+}
+
+
+#message-container{
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    display: grid;
+    align-content: center;
+    padding: 0 20px 110px;
+    background-color: $white-color;
+
+    form{
+        display: flex;
+        justify-content: center;
+        gap: 10px;
+
+        textarea{
+            border-radius: .5em;
+            padding: 1em 1.5em;
+            resize: none;
+        }
+        
+        button{
+            padding: .5em 1em;
+            border:none;
+            border-radius: .5em;
+            background-color: $mainteam-color;
+        }
+    }
+}

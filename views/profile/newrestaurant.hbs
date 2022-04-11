@@ -1,0 +1,46 @@
+{{> head }}
+    {{> header }}
+        {{{body}}}
+<body id="accountbody">
+<section id="accountheader">
+    <h1>New Restaurant</h1>
+</section>
+
+<form action="/account/newFavorite" method="post" class="favoriteform">
+    
+    <h2>Select a restaurant:</h2>
+    <section class="favformRestaurant">
+        {{#each likes}}
+        <input type="radio" id="{{ restaurant.slug }}" class="radioCheck" name="restaurant" value="{{ restaurant._id }}">
+        <label for="{{ restaurant.slug }}">
+        <span>
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt }}">
+            <p>{{ restaurant.name }}</p>
+        </span>
+        </label>
+        {{/each}}
+    </section>
+
+    <h2>My Reccomendations</h2>
+    <section class="favformReccomend">
+        <select name="reccomend1" id="reccomend1">
+            <option value="">-- + --</option>
+            {{#each menu}}
+            <option class="{{ restaurant.slug }} option" value="{{ this._id }}">{{ this.item }}</option>
+            {{/each}}
+        </select>
+        <select name="reccomend2" id="reccomend2">
+            <option value="">-- + --</option>
+            {{#each menu}}
+            <option class="{{ restaurant.slug }} option" value="{{ this._id }}">{{ this.item }}</option>
+            {{/each}}
+        </select>
+    </section>
+
+    <section class="formbtn">
+        <input type="submit" class="submitbtn" value="Save changes">
+        <a href="./">Cancel</a>
+    </section>
+</form>
+</body>
+<script src="/public/js/add.js"></script>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="34.188" height="34.188" viewBox="0 0 34.188 34.188">
+  <g id="compass-outline" transform="translate(1.125 1.125)">
+    <path id="Path_5" data-name="Path 5" d="M36.438,20.469A15.969,15.969,0,1,0,20.469,36.438,15.973,15.973,0,0,0,36.438,20.469Z" transform="translate(-4.5 -4.5)" fill="none" stroke="#333334" stroke-miterlimit="10" stroke-width="2.25"/>
+    <path id="Path_6" data-name="Path 6" d="M27.232,10.619l-9.748,3.9a5.323,5.323,0,0,0-2.966,2.966l-3.9,9.748a.666.666,0,0,0,.865.865l9.748-3.9A5.323,5.323,0,0,0,24.2,21.232l3.9-9.748a.666.666,0,0,0-.865-.865ZM19.358,21.355a2,2,0,1,1,2-2A2,2,0,0,1,19.358,21.355Z" transform="translate(-3.389 -3.389)" fill="#333334"/>
+  </g>
+</svg>

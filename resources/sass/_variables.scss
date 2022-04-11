@@ -1,0 +1,50 @@
+/* 
+  Custom Properties
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+// Properties
+$primary-color: #FFED74;
+$alt-color: #363636;
+$white-color: #ffffff;
+$grey-color: rgb(235,242,255);
+
+$main-font: "poppins", sans-serif;
+
+
+// register page variables
+
+$mainteam-color: #FFED74;
+$mainteam-color-hover: #a39956;
+
+$font-color: #333334;
+$main-font: 'Poppins', sans-serif;
+$input-border-color: #B8C0D7;
+$input-bg-color: #F4F6FC;
+$black-color: black;
+$black-color-light: rgba($black-color, 0.8);
+$validate-color:#63d64c;
+$light-blue: lightblue;
+$errorpage-bg: #2C3338;
+$white: white;
+$btn-primary-hover: #2d328f;
+$link-color: #6168F3;
+$warning-color: #8b0000;
+$main-white: white;
+$red-color: red;
+
+// border
+$border-light: 2px solid rgba($black-color, 0.1);
+$radius-standard: .5em;
+$radius-pill: 1.5em;
+$radius-round: 50%;
+
+/* 
+likes & home
+*/
+$shadow-color: rgba(33, 0, 165, 0.2);
+
+$footer-height: 4em;
+
+/* 
+  Einde Custom Properties
+*/

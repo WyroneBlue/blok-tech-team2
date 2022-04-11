@@ -1,0 +1,73 @@
+<article class="restaurant-details">
+    <section id="top" class="heading">
+        <a href="/restaurants">
+            <img src="/public/images/icons/back.svg" alt="Go Back Icon">
+        </a>
+        <h2>Details</h2>
+        <img class="save-restaurant {{ bool true 'saved' }}" 
+            {{#if true }}
+                src="/public/images/icons/heart-filled.svg"
+            {{else }}
+                src="/public/images/icons/heart-border.svg"
+            {{/if }}
+                data-saved="/public/images/icons/heart-filled.svg" 
+                data-unsaved="/public/images/icons/heart-border.svg" 
+                alt="Save Restaurant Icon"
+            />
+    </section>
+    <section id="middle">
+        <section class="snap">
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt}}">
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt}}">
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt}}">
+            <img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt}}">
+        </section>
+        <section>
+            <div>
+                <h1>{{ restaurant.name }}</h1>
+                <a href="{{ restaurant.location }}" target="_blank">
+                    <img src="/public/images/icons/route.svg" alt="">
+                </a>
+            </div>
+            <ul>
+                <li>Wok</li>
+                <li>All-you-can-eat</li>
+            </ul>
+        </section>
+        <section>
+            <ul class="snap" style="width:{{stars avg 5 35}}px">
+                {{#times 5}}
+                    <li>
+                        <img src="/public/images/icons/star.svg" alt="">
+                    </li>
+                 {{/times}}
+            </ul>
+            <a href="{{ restaurant.slug }}/reviews">
+                Bekijk reviews
+            </a>
+        </section>
+        <p>
+            {{ restaurant.description }}
+        </p>
+    </section>
+    <section id="bottom">
+        <h2>Wilt hier eten</h2>
+        <ul class="snap">
+            {{#each userLikes}}
+                <li>
+                    <a href="/messages/{{ user.username }}/new">
+                        <img src="{{ user.img }}" alt="User Image {{add @index 1 }}">
+                        <p>{{ user.name }}</p>
+                    </a>
+                </li>
+            {{else}}
+                <li>
+                    <a href="#">
+                        <img src="/public/images/profilepic.png" alt="No User Image">
+                        <p>No users yet...</p>
+                    </a>
+                </li>
+            {{/each}}
+        </ul>
+    </section>
+</article>

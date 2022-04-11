@@ -1,0 +1,17 @@
+<section class="likes">
+  <h1>Likes</h1>
+</section>
+
+<section class="blokken">
+	{{#each likes}}
+		
+		<article>
+			<a href="/restaurants/{{ restaurant.slug }}">
+				<img src="{{ restaurant.images.bg.src }}" alt="{{ restaurant.images.bg.alt }}"> 
+				<h2>{{ restaurant.name }}</h2>
+			</a>
+		</article>
+	{{else}}
+		<p>no likes yet</p>
+	{{/each}}
+</section>

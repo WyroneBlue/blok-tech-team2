@@ -1,0 +1,20 @@
+/* CSS Document */
+// Variables
+@import 'variables';
+
+// Styles
+@import 'global';
+@import 'form';
+@import 'header';
+@import 'nav';
+@import 'footer';
+@import 'animations';
+@import 'account';
+
+// Pages
+@import 'restaurants';
+@import 'messages';
+@import 'register';
+@import 'home';
+@import 'likes';
+@import 'error';

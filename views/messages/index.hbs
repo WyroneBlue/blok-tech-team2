@@ -1,0 +1,33 @@
+<h1>Chats</h1>
+
+<section id="my-chats">
+    <ul>
+        {{#each users}}
+            <li>
+                
+                {{#compare receiver.username ../authUser.username}}
+                    <a href="/messages/{{ ../inviter.username }}/chat">
+                        <img src="{{ ../inviter.img}}" alt="" srcset="">
+                        <section>
+                            <p>{{ ../inviter.name }}</p>
+                {{else}}
+                    <a href="/messages/{{ ../receiver.username }}/chat">
+                        <img src="{{ ../receiver.img}}" alt="" srcset="">
+                        <section>
+                            <p>{{ ../receiver.name }}</p>
+                {{/compare}}
+                {{#each history}}
+                    {{#if @last}}
+                        <span>{{ message }}</span>
+                    {{/if}}     
+
+                {{else}}
+                <span>Send a message!</span>           
+                {{/each}}
+                    </section>
+                </a>
+            </li>
+        {{/each}}
+    </ul>
+</section>
+

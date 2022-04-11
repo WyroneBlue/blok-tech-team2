@@ -1,0 +1,84 @@
+// Messages
+@keyframes msg-sent {
+    0% {
+        transform: translateX(100vw)
+    }
+    80%{
+        transform: translateX(-20vw)
+    }
+    95%{
+        transform: translateX(-15vw)
+    }
+    100% {
+        transform: translateX(0)
+    }
+}
+
+@keyframes msg-received {
+    0% {
+        transform: translateX(-100vw)
+    }
+    80%{
+        transform: translateX(20vw)
+    }
+    95%{
+        transform: translateX(15vw)
+    }
+    100% {
+        transform: translateX(0)
+    }
+}
+
+// restaurants
+@keyframes img-save {
+    0% {
+        transform: rotateY(0) scale(1);
+    }
+    60%{
+        transform: rotateY(0) scale(.8);
+    }
+    100% {
+        transform: rotateY(360deg) scale(1);
+    }
+}
+
+// swipe
+@keyframes swipe-left {
+    0%{
+        transform-origin: left bottom;
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    
+    50%{
+        transform: translate(-60%, -50%) rotate(-40deg);
+    }
+    
+    75%{
+        transform: translate(-70%, -50%) rotate(-60deg);
+    }
+    
+    100%{
+        transform-origin: right bottom;
+        transform: translate(-100%, -50%) rotate(-80deg);
+    }
+}
+
+@keyframes swipe-right {
+    0%{
+        transform-origin: right bottom;
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    
+    50%{
+        transform: translate(-40%, -50%) rotate(40deg);
+    }
+    
+    75%{
+        transform: translate(-30%, -50%) rotate(60deg);
+    }
+    
+    100%{
+        transform-origin: right bottom;
+        transform: translate(0%, -50%) rotate(80deg);
+    }
+}

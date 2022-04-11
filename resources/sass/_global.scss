@@ -1,0 +1,17 @@
+/* CSS Reset */
+*, *::after, *::before {
+    box-sizing:border-box;
+    margin: 0;
+    padding: 0;
+}
+body{
+    background: $white;
+    font-family: $main-font;
+}
+
+ul{
+    list-style: none;
+}
+main {
+    padding-bottom: $footer-height * 2;
+}
